@@ -52,7 +52,7 @@ url = "https://github.com/Jesse1211/"
 name = "Linkedin"
 icon = "fa-brands fa-linkedin fa-2x"
 weight = 1
-url = "https://www.linkedin.com/in/jesse-liu-1b1b1b1b/"
+url = "https://www.linkedin.com/in/jesse-liu-0613201b4/"
 [[params.social]]
 name = "Leetcode"
 icon = "fa-solid fa-envelope fa-2x"
@@ -61,10 +61,26 @@ url = "https://leetcode.com/u/zhenhualiu1211/"
 
 # Menu links
 [[menu.main]]
-name = "Blog"
+name = "Algorithm"
 weight = 1
-url = "posts/"
-[[menu.main]]
-name = "About"
-weight = 2
-url = "about/"
+url = "algorithm/"
+# [[menu.main]]
+# name = "DFS"
+# weight = 1
+# url = "posts/DFS"
+# [[menu.main]]
+# name = "Binary Search"
+# weight = 1
+# url = "posts/BinarySearch"
+# [[menu.main]]
+# name = "Two Pointers"
+# weight = 1
+# url = "posts/TwoPointers"
+# # [[menu.main]]
+# # name = "Sub Related"
+# # weight = 1
+# # url = "posts/"
+# [[menu.main]]
+# name = "Prefix Sum"
+# weight = 1
+# url = "posts/PrefixSum"

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  BFS · Never Stop Coding
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Jesse Liu">
+<meta name="description" content="
+  Shortcodes O(n * m)
+  
+    
+    Link to heading
+  
+
+while (q is not empty) {
+	traverse q {
+		var cur = q.poll();
+		if cur.child is valid {
+			add cur.child to q
+		}
+	}
+}
+
+
+  Tree: 以 root 为中心
+  
+    
+    Link to heading
+  
+
+
+从 root 开始, 向下蔓延
+102, 103, 104, 107, 111, 116, 117, 199, 297, 429, 513, 515, 559
+
+
+
+  Matrix, Graph, 无规则 List: 指定点为中心
+  
+    
+    Link to heading
+  
+
+
+难点 - 用 Map 或者 list 来重新梳理一下信息
+通过题目的信息来用一下 trick 来防重
+
+int[] minCost = new int[n];
+Set&lt;&gt; visited = new HashSet();
+Change value when traversing, change back after
+
+
+
+
+  正推 From center
+  
+    
+    Link to heading
+  
+
+
+找到中心, 一层一层“向外剥”
+133, 200, 279, 314, 690, 733, 752, 787, 815, 863
+
+
+  反推 From opposite / leaf
+  
+    
+    Link to heading
+  
+
+
+从很轻易判定状态的开始 (edge case), 一层一层 “向内剥”
+Topological: 如果是从 leaf 开始, 可以通过int[] degrees判断是不是 leaf, 然后加到 queue
+130, 207, 210, 310, 339, 417, 542, 547, 1162
+
+
+
+  Recursion 不常用
+  
+    
+    Link to heading
+  
+
+bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res)
+{
+	if (root == null) {
+		return ;
+	}
+	if (res.size() == index) { // 需要开一个新的level
+		List&lt;Integer&gt; cur = new ArrayList&lt;&gt;();
+		cur.add(root.val);
+		res.add(cur);
+	} else {
+		res.get(index).add(root.val);
+	}
+
+	bfs(root.left, index&#43;1, res);
+	bfs(root.right, index&#43;1, res);
+}
+">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BFS">
+  <meta name="twitter:description" content=" Shortcodes O(n * m) Link to heading while (q is not empty) { traverse q { var cur = q.poll(); if cur.child is valid { add cur.child to q } } } Tree: 以 root 为中心 Link to heading 从 root 开始, 向下蔓延 102, 103, 104, 107, 111, 116, 117, 199, 297, 429, 513, 515, 559 Matrix, Graph, 无规则 List: 指定点为中心 Link to heading 难点 - 用 Map 或者 list 来重新梳理一下信息 通过题目的信息来用一下 trick 来防重 int[] minCost = new int[n]; Set&lt;&gt; visited = new HashSet(); Change value when traversing, change back after 正推 From center Link to heading 找到中心, 一层一层“向外剥” 133, 200, 279, 314, 690, 733, 752, 787, 815, 863 反推 From opposite / leaf Link to heading 从很轻易判定状态的开始 (edge case), 一层一层 “向内剥” Topological: 如果是从 leaf 开始, 可以通过int[] degrees判断是不是 leaf, 然后加到 queue 130, 207, 210, 310, 339, 417, 542, 547, 1162 Recursion 不常用 Link to heading bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res) { if (root == null) { return ; } if (res.size() == index) { // 需要开一个新的level List&lt;Integer&gt; cur = new ArrayList&lt;&gt;(); cur.add(root.val); res.add(cur); } else { res.get(index).add(root.val); } bfs(root.left, index&#43;1, res); bfs(root.right, index&#43;1, res); } ">
+
+<meta property="og:url" content="http://localhost:1313/algorithm/bfs/">
+  <meta property="og:site_name" content="Never Stop Coding">
+  <meta property="og:title" content="BFS">
+  <meta property="og:description" content=" Shortcodes O(n * m) Link to heading while (q is not empty) { traverse q { var cur = q.poll(); if cur.child is valid { add cur.child to q } } } Tree: 以 root 为中心 Link to heading 从 root 开始, 向下蔓延 102, 103, 104, 107, 111, 116, 117, 199, 297, 429, 513, 515, 559 Matrix, Graph, 无规则 List: 指定点为中心 Link to heading 难点 - 用 Map 或者 list 来重新梳理一下信息 通过题目的信息来用一下 trick 来防重 int[] minCost = new int[n]; Set&lt;&gt; visited = new HashSet(); Change value when traversing, change back after 正推 From center Link to heading 找到中心, 一层一层“向外剥” 133, 200, 279, 314, 690, 733, 752, 787, 815, 863 反推 From opposite / leaf Link to heading 从很轻易判定状态的开始 (edge case), 一层一层 “向内剥” Topological: 如果是从 leaf 开始, 可以通过int[] degrees判断是不是 leaf, 然后加到 queue 130, 207, 210, 310, 339, 417, 542, 547, 1162 Recursion 不常用 Link to heading bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res) { if (root == null) { return ; } if (res.size() == index) { // 需要开一个新的level List&lt;Integer&gt; cur = new ArrayList&lt;&gt;(); cur.add(root.val); res.add(cur); } else { res.get(index).add(root.val); } bfs(root.left, index&#43;1, res); bfs(root.right, index&#43;1, res); } ">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="algorithm">
+    <meta property="article:published_time" content="2024-10-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-13T00:00:00+00:00">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="Markdown">
+    <meta property="article:tag" content="Css">
+    <meta property="article:tag" content="Html">
+    <meta property="article:tag" content="Shortcodes">
+      <meta property="og:see_also" content="http://localhost:1313/algorithm/binarysearch/">
+      <meta property="og:see_also" content="http://localhost:1313/algorithm/dfs/">
+      <meta property="og:see_also" content="http://localhost:1313/algorithm/twopointer/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/algorithm/bfs/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Never Stop Coding
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/algorithm/">Algorithm</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/algorithm/bfs/">
+          BFS
+        </a>
+      </h1>
+    </header>
+
+    <h2 id="shortcodes-on--m">
+  Shortcodes O(n * m)
+  <a class="heading-link" href="#shortcodes-on--m">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">while</span> (q <span style="color:#ff7b72;font-weight:bold">is</span> <span style="color:#ff7b72;font-weight:bold">not</span> empty) {
+</span></span><span style="display:flex;"><span>	traverse q {
+</span></span><span style="display:flex;"><span>		var cur <span style="color:#ff7b72;font-weight:bold">=</span> q<span style="color:#ff7b72;font-weight:bold">.</span>poll();
+</span></span><span style="display:flex;"><span>		<span style="color:#ff7b72">if</span> cur<span style="color:#ff7b72;font-weight:bold">.</span>child <span style="color:#ff7b72;font-weight:bold">is</span> valid {
+</span></span><span style="display:flex;"><span>			add cur<span style="color:#ff7b72;font-weight:bold">.</span>child to q
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h3 id="tree-以-root-为中心">
+  Tree: 以 root 为中心
+  <a class="heading-link" href="#tree-%e4%bb%a5-root-%e4%b8%ba%e4%b8%ad%e5%bf%83">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>从 root 开始, 向下蔓延</li>
+<li>102, 103, 104, 107, 111, 116, 117, 199, 297, 429, 513, 515, 559</li>
+</ul>
+<hr>
+<h3 id="matrix-graph-无规则-list-指定点为中心">
+  Matrix, Graph, 无规则 List: 指定点为中心
+  <a class="heading-link" href="#matrix-graph-%e6%97%a0%e8%a7%84%e5%88%99-list-%e6%8c%87%e5%ae%9a%e7%82%b9%e4%b8%ba%e4%b8%ad%e5%bf%83">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>难点 - 用 Map 或者 list 来重新梳理一下信息</li>
+<li>通过题目的信息来用一下 trick 来防重
+<ul>
+<li><code>int[] minCost = new int[n];</code></li>
+<li><code>Set&lt;&gt; visited = new HashSet();</code></li>
+<li>Change value when traversing, change back after</li>
+</ul>
+</li>
+</ol>
+<h4 id="正推-from-center">
+  正推 From center
+  <a class="heading-link" href="#%e6%ad%a3%e6%8e%a8-from-center">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>找到中心, 一层一层“向外剥”</li>
+<li><strong>133</strong>, 200, <strong>279</strong>, <strong><em>314</em></strong>, 690, 733, 752, <strong>787</strong>, <strong>815</strong>, <strong>863</strong></li>
+</ul>
+<h4 id="反推-from-opposite--leaf">
+  反推 From opposite / leaf
+  <a class="heading-link" href="#%e5%8f%8d%e6%8e%a8-from-opposite--leaf">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>从很轻易判定状态的开始 (edge case), 一层一层 “向内剥”</li>
+<li><em>Topological</em>: 如果是从 leaf 开始, 可以通过<code>int[] degrees</code>判断是不是 leaf, 然后加到 queue</li>
+<li><strong>130</strong>, 207, 210, 310, <strong>339</strong>, <strong>417</strong>, 542, 547, 1162</li>
+</ul>
+<hr>
+<h3 id="recursion-不常用">
+  Recursion 不常用
+  <a class="heading-link" href="#recursion-%e4%b8%8d%e5%b8%b8%e7%94%a8">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>bfs(TreeNode<span style="color:#6e7681"> </span>root,<span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>index,<span style="color:#6e7681"> </span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span>res)<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span><span style="color:#ff7b72">if</span><span style="color:#6e7681"> </span>(root<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#6e7681"> </span><span style="color:#79c0ff">null</span>)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span><span style="color:#ff7b72">if</span><span style="color:#6e7681"> </span>(res.size()<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#6e7681"> </span>index)<span style="color:#6e7681"> </span>{<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// 需要开一个新的level</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>cur<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ArrayList<span style="color:#ff7b72;font-weight:bold">&lt;&gt;</span>();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span>cur.add(root.val);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span>res.add(cur);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">else</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span>res.get(index).add(root.val);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span>bfs(root.left,<span style="color:#6e7681"> </span>index<span style="color:#ff7b72;font-weight:bold">+</span>1,<span style="color:#6e7681"> </span>res);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span>bfs(root.right,<span style="color:#6e7681"> </span>index<span style="color:#ff7b72;font-weight:bold">+</span>1,<span style="color:#6e7681"> </span>res);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div>
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2024
+     Jesse Liu 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

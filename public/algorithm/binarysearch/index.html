@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Binary Search · Never Stop Coding
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Jesse Liu">
+<meta name="description" content="
+  O(log n)
+  
+    
+    Link to heading
+  
+
+
+  Inclusive while (left &lt;= right) (精确匹配并可能返回索引)
+  
+    
+    Link to heading
+  
+
+public int firstBadVersion(int n) {
+	int low = 1;
+	int high = n;
+	while(low&lt;=high){
+		int mid = low &#43; (high-low)/2;
+		if(isBadVersion(mid)){
+			high = mid - 1;
+		}
+		else {
+			low = mid &#43; 1;
+		}
+	}
+	return low;
+}
+
+适用场景：查找并且直接返回符合的元素
+需要检查left == right的时候. 适用于查找唯一 index 场景
+
+如果完全符合, 直接返回
+如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low &gt; high
+
+
+更新方法： left = mid &#43; 1; right = mid - 1;
+33, 34, 35, 69, 74, 81, 275, 528, 1300
+
+
+
+  Exclusive while (left &lt; right) (在区间中查找边界或条件)
+  
+    
+    Link to heading
+  
+
+	public int peakIndexInMountainArray(int[] arr) {
+		int left = 0;
+		int right = arr.length - 1;
+			while (left &lt; right) {
+				int mid = left &#43; (right - left) / 2;
+				if (arr[mid] &lt; arr[mid&#43;1]) {
+					left = mid &#43; 1;
+				}
+				else {
+					right = mid;
+				}
+			}
+		return right;
+	}
+
+不检查left == right
+在区间中查找一个 boundary，上界/下界。
+更新方法：left = mid 或者 mid &#43; 1; right = mid 或者 mid - 1
+适用场景：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。
+154, 162, 278, 540, 852, 1011
+">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Binary Search">
+  <meta name="twitter:description" content=" O(log n) Link to heading Inclusive while (left &lt;= right) (精确匹配并可能返回索引) Link to heading public int firstBadVersion(int n) { int low = 1; int high = n; while(low&lt;=high){ int mid = low &#43; (high-low)/2; if(isBadVersion(mid)){ high = mid - 1; } else { low = mid &#43; 1; } } return low; } 适用场景：查找并且直接返回符合的元素 需要检查left == right的时候. 适用于查找唯一 index 场景 如果完全符合, 直接返回 如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low &gt; high 更新方法： left = mid &#43; 1; right = mid - 1; 33, 34, 35, 69, 74, 81, 275, 528, 1300 Exclusive while (left &lt; right) (在区间中查找边界或条件) Link to heading public int peakIndexInMountainArray(int[] arr) { int left = 0; int right = arr.length - 1; while (left &lt; right) { int mid = left &#43; (right - left) / 2; if (arr[mid] &lt; arr[mid&#43;1]) { left = mid &#43; 1; } else { right = mid; } } return right; } 不检查left == right 在区间中查找一个 boundary，上界/下界。 更新方法：left = mid 或者 mid &#43; 1; right = mid 或者 mid - 1 适用场景：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。 154, 162, 278, 540, 852, 1011 ">
+
+<meta property="og:url" content="http://localhost:1313/algorithm/binarysearch/">
+  <meta property="og:site_name" content="Never Stop Coding">
+  <meta property="og:title" content="Binary Search">
+  <meta property="og:description" content=" O(log n) Link to heading Inclusive while (left &lt;= right) (精确匹配并可能返回索引) Link to heading public int firstBadVersion(int n) { int low = 1; int high = n; while(low&lt;=high){ int mid = low &#43; (high-low)/2; if(isBadVersion(mid)){ high = mid - 1; } else { low = mid &#43; 1; } } return low; } 适用场景：查找并且直接返回符合的元素 需要检查left == right的时候. 适用于查找唯一 index 场景 如果完全符合, 直接返回 如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low &gt; high 更新方法： left = mid &#43; 1; right = mid - 1; 33, 34, 35, 69, 74, 81, 275, 528, 1300 Exclusive while (left &lt; right) (在区间中查找边界或条件) Link to heading public int peakIndexInMountainArray(int[] arr) { int left = 0; int right = arr.length - 1; while (left &lt; right) { int mid = left &#43; (right - left) / 2; if (arr[mid] &lt; arr[mid&#43;1]) { left = mid &#43; 1; } else { right = mid; } } return right; } 不检查left == right 在区间中查找一个 boundary，上界/下界。 更新方法：left = mid 或者 mid &#43; 1; right = mid 或者 mid - 1 适用场景：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。 154, 162, 278, 540, 852, 1011 ">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="algorithm">
+    <meta property="article:published_time" content="2024-10-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-13T00:00:00+00:00">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="Markdown">
+    <meta property="article:tag" content="Css">
+    <meta property="article:tag" content="Html">
+    <meta property="article:tag" content="Shortcodes">
+      <meta property="og:see_also" content="http://localhost:1313/algorithm/bfs/">
+      <meta property="og:see_also" content="http://localhost:1313/algorithm/dfs/">
+      <meta property="og:see_also" content="http://localhost:1313/algorithm/twopointer/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/algorithm/binarysearch/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Never Stop Coding
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/algorithm/">Algorithm</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/algorithm/binarysearch/">
+          Binary Search
+        </a>
+      </h1>
+    </header>
+
+    <h2 id="olog-n">
+  O(log n)
+  <a class="heading-link" href="#olog-n">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h4 id="inclusive-while-left--right-精确匹配并可能返回索引">
+  Inclusive <code>while (left &lt;= right)</code> (精确匹配并可能返回索引)
+  <a class="heading-link" href="#inclusive-while-left--right-%e7%b2%be%e7%a1%ae%e5%8c%b9%e9%85%8d%e5%b9%b6%e5%8f%af%e8%83%bd%e8%bf%94%e5%9b%9e%e7%b4%a2%e5%bc%95">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">firstBadVersion</span>(<span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>n)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>low<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>1;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>high<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>n;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span><span style="color:#ff7b72">while</span>(low<span style="color:#ff7b72;font-weight:bold">&lt;=</span>high){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>mid<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>low<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>(high<span style="color:#ff7b72;font-weight:bold">-</span>low)<span style="color:#ff7b72;font-weight:bold">/</span>2;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span><span style="color:#ff7b72">if</span>(isBadVersion(mid)){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">			</span>high<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>mid<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#6e7681"> </span>1;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span><span style="color:#ff7b72">else</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">			</span>low<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>mid<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>1;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>low;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><ul>
+<li><strong>适用场景</strong>：查找并且直接返回符合的元素</li>
+<li>需要检查<code>left == right</code>的时候. 适用于查找唯一 index 场景
+<ul>
+<li>如果完全符合, 直接返回</li>
+<li>如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low &gt; high</li>
+</ul>
+</li>
+<li><strong>更新方法</strong>： <code>left = mid + 1; right = mid - 1;</code></li>
+<li>33, 34, 35, 69, 74, <strong>81</strong>, 275, 528, <strong>1300</strong></li>
+</ul>
+<hr>
+<h4 id="exclusive-while-left--right-在区间中查找边界或条件">
+  Exclusive <code>while (left &lt; right)</code> (在区间中查找边界或条件)
+  <a class="heading-link" href="#exclusive-while-left--right-%e5%9c%a8%e5%8c%ba%e9%97%b4%e4%b8%ad%e6%9f%a5%e6%89%be%e8%be%b9%e7%95%8c%e6%88%96%e6%9d%a1%e4%bb%b6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6e7681">	</span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">peakIndexInMountainArray</span>(<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>arr)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>left<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>0;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>right<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>arr.length<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#6e7681"> </span>1;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">			</span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>(left<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#6e7681"> </span>right)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">				</span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>mid<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>left<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>(right<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#6e7681"> </span>left)<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">/</span><span style="color:#6e7681"> </span>2;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">				</span><span style="color:#ff7b72">if</span><span style="color:#6e7681"> </span>(arr<span style="color:#ff7b72;font-weight:bold">[</span>mid<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#6e7681"> </span>arr<span style="color:#ff7b72;font-weight:bold">[</span>mid<span style="color:#ff7b72;font-weight:bold">+</span>1<span style="color:#ff7b72;font-weight:bold">]</span>)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">					</span>left<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>mid<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>1;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">				</span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">				</span><span style="color:#ff7b72">else</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">					</span>right<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>mid;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">				</span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">			</span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">		</span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>right;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">	</span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><ul>
+<li>不检查<code>left == right</code></li>
+<li>在区间中查找一个 boundary，上界/下界。</li>
+<li><strong>更新方法</strong>：<code>left = mid 或者 mid + 1; right = mid 或者 mid - 1</code></li>
+<li><strong>适用场景</strong>：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。</li>
+<li>154, 162, 278, 540, 852, <strong>1011</strong></li>
+</ul>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2024
+     Jesse Liu 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

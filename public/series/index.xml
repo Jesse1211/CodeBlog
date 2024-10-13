@@ -6,6 +6,14 @@
     <description>Recent content in Series on Never Stop Coding</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Sun, 13 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Theme Demo</title>
+      <link>http://localhost:1313/series/theme-demo/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/series/theme-demo/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

@@ -6,6 +6,42 @@
     <description>Recent content in Tags on Never Stop Coding</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Sun, 13 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Css</title>
+      <link>http://localhost:1313/tags/css/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/css/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Html</title>
+      <link>http://localhost:1313/tags/html/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/html/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>http://localhost:1313/tags/hugo/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:1313/tags/markdown/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shortcodes</title>
+      <link>http://localhost:1313/tags/shortcodes/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/shortcodes/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
