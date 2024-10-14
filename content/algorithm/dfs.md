@@ -37,11 +37,19 @@ dfs(root, value) {
 2. inductive case: if can make recursive call
 3. return false if needed
 
-- 98, 100, **105**, 112, **113**, **114**, 129, 226, **235**, 236, 572, **1650**
+{{< notice question >}}
+98, 100, **105**, 112, **113**, **114**, 129, 226, **235**, **236**, 572, 1650
+
+- 114 有点可怕
+  {{< /notice >}}
+
+{{< notice note >}}
 
 - Inorder traversal: left root right
 - Preorder traversal: root, left, right
 - Postorder traversal: left, right, root
+
+{{< /notice >}}
 
 ---
 
@@ -79,11 +87,16 @@ dfs(options, visited, cur, res, index){
    - 如果是更改 input, 需要快慢指针 swap 来代替 cur 和 res
    - dfs()/main()中可以加 set 来防重
      - 取决于题型: 前后 add + remove, 或者设定 true / false
+     - 取决于题型: set 保存 value 还是 index
 
-- 17, 22, 39, 40, 46, 47, 77, 78, 79, 90, **93**, 131, 207, 216, 526, 1079
+{{< notice question >}}
+17, **22**, 39, 40, 46, **47**, 77, 78, 79, **90**, **93**, **131**, **207**, 216, 526, **547**, 1079
+{{< /notice >}}
 
 ---
 
 ### Matrix (个人喜好 BFS)
 
-- **212** - highlight: Trie!
+{{< notice question >}}
+**212** - highlight: Trie!
+{{< /notice >}}

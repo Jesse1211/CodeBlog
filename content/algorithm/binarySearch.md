@@ -43,7 +43,10 @@ public int firstBadVersion(int n) {
   - 如果完全符合, 直接返回
   - 如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low > high
 - **更新方法**： `left = mid + 1; right = mid - 1;`
-- 33, 34, 35, 69, 74, **81**, 275, 528, **1300**
+
+{{< notice question >}}
+33, 34, 35, 69, 74, **81**, 275, 528, **1300**
+{{< /notice >}}
 
 ---
 
@@ -70,4 +73,7 @@ public int firstBadVersion(int n) {
 - 在区间中查找一个 boundary，上界/下界。
 - **更新方法**：`left = mid 或者 mid + 1; right = mid 或者 mid - 1`
 - **适用场景**：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。
-- 154, 162, 278, 540, 852, **1011**
+
+{{< notice question >}}
+154, 162, 278, 540, 852, **1011**
+{{< /notice >}}

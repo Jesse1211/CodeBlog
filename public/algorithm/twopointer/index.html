@@ -12,7 +12,7 @@
 
 
 
-<meta name="author" content="Jesse Liu">
+<meta name="author" content="Jesse">
 <meta name="description" content="
   O(nlogn) OR O(nlogn)
   
@@ -48,7 +48,13 @@ n (length) 左边都是 unknown
 
 slow 代表 next valid element 要放到的位置 / 用于 reset 快指针
 fast 检查 element 是否可以放到 slow 的位置
-26, 27, 28, 80, 88, 121, 283, 50, 532, 541
+
+
+  
+    Question
+  
+  26, 27, 28, 80, 88, 121, 283, 50, 532, 541
+
 
 
 
@@ -66,7 +72,11 @@ n (length)
 
 
 
-1, 11, 15, 16, 18, 42, 75, 125, 167, 344, 345, 680
+  
+    Question
+  
+  1, 11, 15, 16, 18, 42, 75, 125, 167, 344, 345, 680
+
 
 
 
@@ -90,36 +100,20 @@ while () {
 	4. 更新fast指针
 }
 
-需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left
-Fixed window
 
-219, 438, 567, 643, 1343
-
-
-Non-fixed window
-
-算次数 trick
-
-不需要每次 slide 都要 shrink 找所有情况
-res &#43;= right - left &#43; 1;
-
-
-424, 713, 904, 930, 1004, 1248
-
-
-">
+需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left">
 <meta name="keywords" content="blog,developer,personal">
 
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Two Pointer">
-  <meta name="twitter:description" content=" O(nlogn) OR O(nlogn) Link to heading 两个 list, 分别各有一个指针 Link to heading 349, 455, 524, 826, 1570 同向 - 快慢指针 Link to heading 0 -&gt; i -&gt; j -&gt; n i (slow) 左边都是 processed j (fast) 左边都是 not needed n (length) 左边都是 unknown slow 代表 next valid element 要放到的位置 / 用于 reset 快指针 fast 检查 element 是否可以放到 slow 的位置 26, 27, 28, 80, 88, 121, 283, 50, 532, 541 相夹 - 左右指针 Link to heading 0 -&gt; i -- j &lt;- n i (left) 左边都是 processed j (right) 右边都是 processed n (length) 1, 11, 15, 16, 18, 42, 75, 125, 167, 344, 345, 680 Sliding Window Link to heading fixed window size while () { 1. 加入fast, 删除slow 2. 检查window是否valid 3. 更新fast, slow指针 } Non-fixed window size while () { 1. 进行一次fast检查 2. expand: 加入fast之后, 更新window信息 3. 检查是否需要shrink 4. 更新fast指针 } 需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left Fixed window 219, 438, 567, 643, 1343 Non-fixed window 算次数 trick 不需要每次 slide 都要 shrink 找所有情况 res &#43;= right - left &#43; 1; 424, 713, 904, 930, 1004, 1248 ">
+  <meta name="twitter:description" content=" O(nlogn) OR O(nlogn) Link to heading 两个 list, 分别各有一个指针 Link to heading 349, 455, 524, 826, 1570 同向 - 快慢指针 Link to heading 0 -&gt; i -&gt; j -&gt; n i (slow) 左边都是 processed j (fast) 左边都是 not needed n (length) 左边都是 unknown slow 代表 next valid element 要放到的位置 / 用于 reset 快指针 fast 检查 element 是否可以放到 slow 的位置 Question 26, 27, 28, 80, 88, 121, 283, 50, 532, 541 相夹 - 左右指针 Link to heading 0 -&gt; i -- j &lt;- n i (left) 左边都是 processed j (right) 右边都是 processed n (length) Question 1, 11, 15, 16, 18, 42, 75, 125, 167, 344, 345, 680 Sliding Window Link to heading fixed window size while () { 1. 加入fast, 删除slow 2. 检查window是否valid 3. 更新fast, slow指针 } Non-fixed window size while () { 1. 进行一次fast检查 2. expand: 加入fast之后, 更新window信息 3. 检查是否需要shrink 4. 更新fast指针 } 需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left">
 
 <meta property="og:url" content="http://localhost:1313/algorithm/twopointer/">
   <meta property="og:site_name" content="Never Stop Coding">
   <meta property="og:title" content="Two Pointer">
-  <meta property="og:description" content=" O(nlogn) OR O(nlogn) Link to heading 两个 list, 分别各有一个指针 Link to heading 349, 455, 524, 826, 1570 同向 - 快慢指针 Link to heading 0 -&gt; i -&gt; j -&gt; n i (slow) 左边都是 processed j (fast) 左边都是 not needed n (length) 左边都是 unknown slow 代表 next valid element 要放到的位置 / 用于 reset 快指针 fast 检查 element 是否可以放到 slow 的位置 26, 27, 28, 80, 88, 121, 283, 50, 532, 541 相夹 - 左右指针 Link to heading 0 -&gt; i -- j &lt;- n i (left) 左边都是 processed j (right) 右边都是 processed n (length) 1, 11, 15, 16, 18, 42, 75, 125, 167, 344, 345, 680 Sliding Window Link to heading fixed window size while () { 1. 加入fast, 删除slow 2. 检查window是否valid 3. 更新fast, slow指针 } Non-fixed window size while () { 1. 进行一次fast检查 2. expand: 加入fast之后, 更新window信息 3. 检查是否需要shrink 4. 更新fast指针 } 需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left Fixed window 219, 438, 567, 643, 1343 Non-fixed window 算次数 trick 不需要每次 slide 都要 shrink 找所有情况 res &#43;= right - left &#43; 1; 424, 713, 904, 930, 1004, 1248 ">
+  <meta property="og:description" content=" O(nlogn) OR O(nlogn) Link to heading 两个 list, 分别各有一个指针 Link to heading 349, 455, 524, 826, 1570 同向 - 快慢指针 Link to heading 0 -&gt; i -&gt; j -&gt; n i (slow) 左边都是 processed j (fast) 左边都是 not needed n (length) 左边都是 unknown slow 代表 next valid element 要放到的位置 / 用于 reset 快指针 fast 检查 element 是否可以放到 slow 的位置 Question 26, 27, 28, 80, 88, 121, 283, 50, 532, 541 相夹 - 左右指针 Link to heading 0 -&gt; i -- j &lt;- n i (left) 左边都是 processed j (right) 右边都是 processed n (length) Question 1, 11, 15, 16, 18, 42, 75, 125, 167, 344, 345, 680 Sliding Window Link to heading fixed window size while () { 1. 加入fast, 删除slow 2. 检查window是否valid 3. 更新fast, slow指针 } Non-fixed window size while () { 1. 进行一次fast检查 2. expand: 加入fast之后, 更新window信息 3. 检查是否需要shrink 4. 更新fast指针 } 需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="algorithm">
@@ -276,8 +270,14 @@ res &#43;= right - left &#43; 1;
 <ul>
 <li>slow 代表 next valid element 要放到的位置 / 用于 reset 快指针</li>
 <li>fast 检查 element 是否可以放到 slow 的位置</li>
-<li>26, 27, 28, <strong>80</strong>, <strong>88</strong>, 121, 283, 50, 532, 541</li>
 </ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content">26, 27, 28, <strong>80</strong>, <strong>88</strong>, 121, 283, 50, 532, 541</div>
+</div>
+
 <hr>
 <h5 id="相夹---左右指针">
   相夹 - 左右指针
@@ -293,9 +293,13 @@ res &#43;= right - left &#43; 1;
 <li>n (length)</li>
 </ul>
 <!-- raw HTML omitted -->
-<ul>
-<li>1, 11, 15, 16, 18, <strong>42</strong>, <strong>75</strong>, 125, 167, 344, 345, 680</li>
-</ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content">1, 11, 15, 16, 18, <strong>42</strong>, <strong>75</strong>, 125, 167, 344, 345, 680</div>
+</div>
+
 <hr>
 <h5 id="sliding-window">
   Sliding Window
@@ -318,22 +322,32 @@ res &#43;= right - left &#43; 1;
 </span></span><span style="display:flex;"><span>	4. 更新fast指针
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">}</span>
 </span></span></code></pre></div><ul>
-<li>需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left</li>
-<li>Fixed window
-<ul>
-<li>219, 438, 567, 643, 1343</li>
-</ul>
+<li>
+<p>需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left</p>
 </li>
-<li>Non-fixed window
+<li>
+<p>Fixed window
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content">219, 438, 567, 643, 1343</div>
+</div>
+</p>
+</li>
+<li>
+<p>Non-fixed window</p>
 <ul>
-<li>算次数 trick
-<ul>
-<li>不需要每次 slide 都要 shrink 找所有情况</li>
+<li>算次数 trick - 不需要每次 slide 都要 shrink 找所有情况</li>
 <li><code>res += right - left + 1;</code></li>
 </ul>
-</li>
-<li><strong>424</strong>, <strong>713</strong>, <strong>904</strong>, <strong>930</strong>, <strong>1004</strong>, 1248</li>
-</ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content"><strong>424</strong>, <strong>713</strong>, <strong>904</strong>, <strong>930</strong>, <strong>1004</strong>, 1248</div>
+</div>
+
 </li>
 </ul>
 
@@ -351,7 +365,7 @@ res &#43;= right - left &#43; 1;
       2019 -
     
     2024
-     Jesse Liu 
+     Jesse 
     ·
     
     Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.

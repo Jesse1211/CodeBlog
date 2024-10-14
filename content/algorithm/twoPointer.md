@@ -39,7 +39,10 @@ aliases = ["migrate-from-jekyl"]
 
 - slow 代表 next valid element 要放到的位置 / 用于 reset 快指针
 - fast 检查 element 是否可以放到 slow 的位置
-- 26, 27, 28, **80**, **88**, 121, 283, 50, 532, 541
+
+{{< notice question >}}
+26, 27, 28, **80**, **88**, 121, 283, 50, 532, 541
+{{< /notice >}}
 
 ---
 
@@ -54,7 +57,9 @@ aliases = ["migrate-from-jekyl"]
 - n (length)
 <!-- 0 $$\overrightarrow{\rm processed}$$ i $$\overline{\rm \text{unknown}}$$ j $$\overleftarrow{\rm processed}$$ n -->
 
-- 1, 11, 15, 16, 18, **42**, **75**, 125, 167, 344, 345, 680
+{{< notice question >}}
+1, 11, 15, 16, 18, **42**, **75**, 125, 167, 344, 345, 680
+{{< /notice >}}
 
 ---
 
@@ -81,9 +86,14 @@ while () {
 
 - 需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left
 - Fixed window
-  - 219, 438, 567, 643, 1343
+  {{< notice question >}}
+  219, 438, 567, 643, 1343
+  {{< /notice >}}
 - Non-fixed window
-  - 算次数 trick
-    - 不需要每次 slide 都要 shrink 找所有情况
-    - `res += right - left + 1;`
-  - **424**, **713**, **904**, **930**, **1004**, 1248
+
+  - 算次数 trick - 不需要每次 slide 都要 shrink 找所有情况
+  - `res += right - left + 1;`
+
+  {{< notice question >}}
+  **424**, **713**, **904**, **930**, **1004**, 1248
+  {{< /notice >}}

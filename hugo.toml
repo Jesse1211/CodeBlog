@@ -14,8 +14,8 @@ disqusShortname = "yourdiscussshortname"
 style = "github-dark"
 
 [params]
-author = "Jesse Liu"
-info = "Full Stack Developer"
+author = "Jesse"
+info = "Full Stack LeetCoder 🙄"
 description = "Jesse's personal leetcode website"
 keywords = "blog,developer,personal"
 avatarurl = "images/avatar.jpg"

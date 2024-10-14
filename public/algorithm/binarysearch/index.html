@@ -12,7 +12,7 @@
 
 
 
-<meta name="author" content="Jesse Liu">
+<meta name="author" content="Jesse">
 <meta name="description" content="
   O(log n)
   
@@ -50,7 +50,13 @@ public int firstBadVersion(int n) {
 
 
 更新方法： left = mid &#43; 1; right = mid - 1;
-33, 34, 35, 69, 74, 81, 275, 528, 1300
+
+
+  
+    Question
+  
+  33, 34, 35, 69, 74, 81, 275, 528, 1300
+
 
 
 
@@ -79,7 +85,12 @@ public int firstBadVersion(int n) {
 在区间中查找一个 boundary，上界/下界。
 更新方法：left = mid 或者 mid &#43; 1; right = mid 或者 mid - 1
 适用场景：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。
-154, 162, 278, 540, 852, 1011
+
+
+  
+    Question
+  
+  154, 162, 278, 540, 852, 1011
 ">
 <meta name="keywords" content="blog,developer,personal">
 
@@ -87,12 +98,12 @@ public int firstBadVersion(int n) {
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Binary Search">
-  <meta name="twitter:description" content=" O(log n) Link to heading Inclusive while (left &lt;= right) (精确匹配并可能返回索引) Link to heading public int firstBadVersion(int n) { int low = 1; int high = n; while(low&lt;=high){ int mid = low &#43; (high-low)/2; if(isBadVersion(mid)){ high = mid - 1; } else { low = mid &#43; 1; } } return low; } 适用场景：查找并且直接返回符合的元素 需要检查left == right的时候. 适用于查找唯一 index 场景 如果完全符合, 直接返回 如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low &gt; high 更新方法： left = mid &#43; 1; right = mid - 1; 33, 34, 35, 69, 74, 81, 275, 528, 1300 Exclusive while (left &lt; right) (在区间中查找边界或条件) Link to heading public int peakIndexInMountainArray(int[] arr) { int left = 0; int right = arr.length - 1; while (left &lt; right) { int mid = left &#43; (right - left) / 2; if (arr[mid] &lt; arr[mid&#43;1]) { left = mid &#43; 1; } else { right = mid; } } return right; } 不检查left == right 在区间中查找一个 boundary，上界/下界。 更新方法：left = mid 或者 mid &#43; 1; right = mid 或者 mid - 1 适用场景：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。 154, 162, 278, 540, 852, 1011 ">
+  <meta name="twitter:description" content=" O(log n) Link to heading Inclusive while (left &lt;= right) (精确匹配并可能返回索引) Link to heading public int firstBadVersion(int n) { int low = 1; int high = n; while(low&lt;=high){ int mid = low &#43; (high-low)/2; if(isBadVersion(mid)){ high = mid - 1; } else { low = mid &#43; 1; } } return low; } 适用场景：查找并且直接返回符合的元素 需要检查left == right的时候. 适用于查找唯一 index 场景 如果完全符合, 直接返回 如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low &gt; high 更新方法： left = mid &#43; 1; right = mid - 1; Question 33, 34, 35, 69, 74, 81, 275, 528, 1300 Exclusive while (left &lt; right) (在区间中查找边界或条件) Link to heading public int peakIndexInMountainArray(int[] arr) { int left = 0; int right = arr.length - 1; while (left &lt; right) { int mid = left &#43; (right - left) / 2; if (arr[mid] &lt; arr[mid&#43;1]) { left = mid &#43; 1; } else { right = mid; } } return right; } 不检查left == right 在区间中查找一个 boundary，上界/下界。 更新方法：left = mid 或者 mid &#43; 1; right = mid 或者 mid - 1 适用场景：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。 Question 154, 162, 278, 540, 852, 1011 ">
 
 <meta property="og:url" content="http://localhost:1313/algorithm/binarysearch/">
   <meta property="og:site_name" content="Never Stop Coding">
   <meta property="og:title" content="Binary Search">
-  <meta property="og:description" content=" O(log n) Link to heading Inclusive while (left &lt;= right) (精确匹配并可能返回索引) Link to heading public int firstBadVersion(int n) { int low = 1; int high = n; while(low&lt;=high){ int mid = low &#43; (high-low)/2; if(isBadVersion(mid)){ high = mid - 1; } else { low = mid &#43; 1; } } return low; } 适用场景：查找并且直接返回符合的元素 需要检查left == right的时候. 适用于查找唯一 index 场景 如果完全符合, 直接返回 如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low &gt; high 更新方法： left = mid &#43; 1; right = mid - 1; 33, 34, 35, 69, 74, 81, 275, 528, 1300 Exclusive while (left &lt; right) (在区间中查找边界或条件) Link to heading public int peakIndexInMountainArray(int[] arr) { int left = 0; int right = arr.length - 1; while (left &lt; right) { int mid = left &#43; (right - left) / 2; if (arr[mid] &lt; arr[mid&#43;1]) { left = mid &#43; 1; } else { right = mid; } } return right; } 不检查left == right 在区间中查找一个 boundary，上界/下界。 更新方法：left = mid 或者 mid &#43; 1; right = mid 或者 mid - 1 适用场景：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。 154, 162, 278, 540, 852, 1011 ">
+  <meta property="og:description" content=" O(log n) Link to heading Inclusive while (left &lt;= right) (精确匹配并可能返回索引) Link to heading public int firstBadVersion(int n) { int low = 1; int high = n; while(low&lt;=high){ int mid = low &#43; (high-low)/2; if(isBadVersion(mid)){ high = mid - 1; } else { low = mid &#43; 1; } } return low; } 适用场景：查找并且直接返回符合的元素 需要检查left == right的时候. 适用于查找唯一 index 场景 如果完全符合, 直接返回 如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low &gt; high 更新方法： left = mid &#43; 1; right = mid - 1; Question 33, 34, 35, 69, 74, 81, 275, 528, 1300 Exclusive while (left &lt; right) (在区间中查找边界或条件) Link to heading public int peakIndexInMountainArray(int[] arr) { int left = 0; int right = arr.length - 1; while (left &lt; right) { int mid = left &#43; (right - left) / 2; if (arr[mid] &lt; arr[mid&#43;1]) { left = mid &#43; 1; } else { right = mid; } } return right; } 不检查left == right 在区间中查找一个 boundary，上界/下界。 更新方法：left = mid 或者 mid &#43; 1; right = mid 或者 mid - 1 适用场景：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。 Question 154, 162, 278, 540, 852, 1011 ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="algorithm">
@@ -251,8 +262,14 @@ public int firstBadVersion(int n) {
 </ul>
 </li>
 <li><strong>更新方法</strong>： <code>left = mid + 1; right = mid - 1;</code></li>
-<li>33, 34, 35, 69, 74, <strong>81</strong>, 275, 528, <strong>1300</strong></li>
 </ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content">33, 34, 35, 69, 74, <strong>81</strong>, 275, 528, <strong>1300</strong></div>
+</div>
+
 <hr>
 <h4 id="exclusive-while-left--right-在区间中查找边界或条件">
   Exclusive <code>while (left &lt; right)</code> (在区间中查找边界或条件)
@@ -280,8 +297,14 @@ public int firstBadVersion(int n) {
 <li>在区间中查找一个 boundary，上界/下界。</li>
 <li><strong>更新方法</strong>：<code>left = mid 或者 mid + 1; right = mid 或者 mid - 1</code></li>
 <li><strong>适用场景</strong>：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。</li>
-<li>154, 162, 278, 540, 852, <strong>1011</strong></li>
 </ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content">154, 162, 278, 540, 852, <strong>1011</strong></div>
+</div>
+
 
   </article>
 </section>
@@ -297,7 +320,7 @@ public int firstBadVersion(int n) {
       2019 -
     
     2024
-     Jesse Liu 
+     Jesse 
     ·
     
     Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.

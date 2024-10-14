@@ -12,7 +12,7 @@
 
 
 
-<meta name="author" content="Jesse Liu">
+<meta name="author" content="Jesse">
 <meta name="description" content="
   Shortcodes O(n * m)
   
@@ -38,7 +38,13 @@ while (q is not empty) {
 
 
 从 root 开始, 向下蔓延
-102, 103, 104, 107, 111, 116, 117, 199, 297, 429, 513, 515, 559
+
+
+  
+    Question
+  
+  102, 103, 104, 107, 111, 116, 117, 199, 297, 314, 429, 513, 515, 559
+
 
 
 
@@ -67,7 +73,13 @@ Change value when traversing, change back after
 
 
 找到中心, 一层一层“向外剥”
-133, 200, 279, 314, 690, 733, 752, 787, 815, 863
+
+
+  
+    Question
+  
+  133, 200, 279, 690, 733, 752, 787, 815, 863
+
 
 
   反推 From opposite / leaf
@@ -79,7 +91,13 @@ Change value when traversing, change back after
 
 从很轻易判定状态的开始 (edge case), 一层一层 “向内剥”
 Topological: 如果是从 leaf 开始, 可以通过int[] degrees判断是不是 leaf, 然后加到 queue
-130, 207, 210, 310, 339, 417, 542, 547, 1162
+
+
+  
+    Question
+  
+  130, 207, 210, 310, 339, 417, 542, 1162
+
 
 
 
@@ -112,12 +130,12 @@ bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res)
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="BFS">
-  <meta name="twitter:description" content=" Shortcodes O(n * m) Link to heading while (q is not empty) { traverse q { var cur = q.poll(); if cur.child is valid { add cur.child to q } } } Tree: 以 root 为中心 Link to heading 从 root 开始, 向下蔓延 102, 103, 104, 107, 111, 116, 117, 199, 297, 429, 513, 515, 559 Matrix, Graph, 无规则 List: 指定点为中心 Link to heading 难点 - 用 Map 或者 list 来重新梳理一下信息 通过题目的信息来用一下 trick 来防重 int[] minCost = new int[n]; Set&lt;&gt; visited = new HashSet(); Change value when traversing, change back after 正推 From center Link to heading 找到中心, 一层一层“向外剥” 133, 200, 279, 314, 690, 733, 752, 787, 815, 863 反推 From opposite / leaf Link to heading 从很轻易判定状态的开始 (edge case), 一层一层 “向内剥” Topological: 如果是从 leaf 开始, 可以通过int[] degrees判断是不是 leaf, 然后加到 queue 130, 207, 210, 310, 339, 417, 542, 547, 1162 Recursion 不常用 Link to heading bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res) { if (root == null) { return ; } if (res.size() == index) { // 需要开一个新的level List&lt;Integer&gt; cur = new ArrayList&lt;&gt;(); cur.add(root.val); res.add(cur); } else { res.get(index).add(root.val); } bfs(root.left, index&#43;1, res); bfs(root.right, index&#43;1, res); } ">
+  <meta name="twitter:description" content=" Shortcodes O(n * m) Link to heading while (q is not empty) { traverse q { var cur = q.poll(); if cur.child is valid { add cur.child to q } } } Tree: 以 root 为中心 Link to heading 从 root 开始, 向下蔓延 Question 102, 103, 104, 107, 111, 116, 117, 199, 297, 314, 429, 513, 515, 559 Matrix, Graph, 无规则 List: 指定点为中心 Link to heading 难点 - 用 Map 或者 list 来重新梳理一下信息 通过题目的信息来用一下 trick 来防重 int[] minCost = new int[n]; Set&lt;&gt; visited = new HashSet(); Change value when traversing, change back after 正推 From center Link to heading 找到中心, 一层一层“向外剥” Question 133, 200, 279, 690, 733, 752, 787, 815, 863 反推 From opposite / leaf Link to heading 从很轻易判定状态的开始 (edge case), 一层一层 “向内剥” Topological: 如果是从 leaf 开始, 可以通过int[] degrees判断是不是 leaf, 然后加到 queue Question 130, 207, 210, 310, 339, 417, 542, 1162 Recursion 不常用 Link to heading bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res) { if (root == null) { return ; } if (res.size() == index) { // 需要开一个新的level List&lt;Integer&gt; cur = new ArrayList&lt;&gt;(); cur.add(root.val); res.add(cur); } else { res.get(index).add(root.val); } bfs(root.left, index&#43;1, res); bfs(root.right, index&#43;1, res); } ">
 
 <meta property="og:url" content="http://localhost:1313/algorithm/bfs/">
   <meta property="og:site_name" content="Never Stop Coding">
   <meta property="og:title" content="BFS">
-  <meta property="og:description" content=" Shortcodes O(n * m) Link to heading while (q is not empty) { traverse q { var cur = q.poll(); if cur.child is valid { add cur.child to q } } } Tree: 以 root 为中心 Link to heading 从 root 开始, 向下蔓延 102, 103, 104, 107, 111, 116, 117, 199, 297, 429, 513, 515, 559 Matrix, Graph, 无规则 List: 指定点为中心 Link to heading 难点 - 用 Map 或者 list 来重新梳理一下信息 通过题目的信息来用一下 trick 来防重 int[] minCost = new int[n]; Set&lt;&gt; visited = new HashSet(); Change value when traversing, change back after 正推 From center Link to heading 找到中心, 一层一层“向外剥” 133, 200, 279, 314, 690, 733, 752, 787, 815, 863 反推 From opposite / leaf Link to heading 从很轻易判定状态的开始 (edge case), 一层一层 “向内剥” Topological: 如果是从 leaf 开始, 可以通过int[] degrees判断是不是 leaf, 然后加到 queue 130, 207, 210, 310, 339, 417, 542, 547, 1162 Recursion 不常用 Link to heading bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res) { if (root == null) { return ; } if (res.size() == index) { // 需要开一个新的level List&lt;Integer&gt; cur = new ArrayList&lt;&gt;(); cur.add(root.val); res.add(cur); } else { res.get(index).add(root.val); } bfs(root.left, index&#43;1, res); bfs(root.right, index&#43;1, res); } ">
+  <meta property="og:description" content=" Shortcodes O(n * m) Link to heading while (q is not empty) { traverse q { var cur = q.poll(); if cur.child is valid { add cur.child to q } } } Tree: 以 root 为中心 Link to heading 从 root 开始, 向下蔓延 Question 102, 103, 104, 107, 111, 116, 117, 199, 297, 314, 429, 513, 515, 559 Matrix, Graph, 无规则 List: 指定点为中心 Link to heading 难点 - 用 Map 或者 list 来重新梳理一下信息 通过题目的信息来用一下 trick 来防重 int[] minCost = new int[n]; Set&lt;&gt; visited = new HashSet(); Change value when traversing, change back after 正推 From center Link to heading 找到中心, 一层一层“向外剥” Question 133, 200, 279, 690, 733, 752, 787, 815, 863 反推 From opposite / leaf Link to heading 从很轻易判定状态的开始 (edge case), 一层一层 “向内剥” Topological: 如果是从 leaf 开始, 可以通过int[] degrees判断是不是 leaf, 然后加到 queue Question 130, 207, 210, 310, 339, 417, 542, 1162 Recursion 不常用 Link to heading bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res) { if (root == null) { return ; } if (res.size() == index) { // 需要开一个新的level List&lt;Integer&gt; cur = new ArrayList&lt;&gt;(); cur.add(root.val); res.add(cur); } else { res.get(index).add(root.val); } bfs(root.left, index&#43;1, res); bfs(root.right, index&#43;1, res); } ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="algorithm">
@@ -264,8 +282,14 @@ bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res)
 </h3>
 <ul>
 <li>从 root 开始, 向下蔓延</li>
-<li>102, 103, 104, 107, 111, 116, 117, 199, 297, 429, 513, 515, 559</li>
 </ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content">102, 103, 104, 107, 111, 116, 117, 199, 297, <strong>314</strong>, 429, 513, 515, 559</div>
+</div>
+
 <hr>
 <h3 id="matrix-graph-无规则-list-指定点为中心">
   Matrix, Graph, 无规则 List: 指定点为中心
@@ -293,8 +317,14 @@ bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res)
 </h4>
 <ul>
 <li>找到中心, 一层一层“向外剥”</li>
-<li><strong>133</strong>, 200, <strong>279</strong>, <strong><em>314</em></strong>, 690, 733, 752, <strong>787</strong>, <strong>815</strong>, <strong>863</strong></li>
 </ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content"><strong>133</strong>, 200, <strong>279</strong>, 690, 733, 752, <strong>787</strong>, <strong>815</strong>, <strong>863</strong></div>
+</div>
+
 <h4 id="反推-from-opposite--leaf">
   反推 From opposite / leaf
   <a class="heading-link" href="#%e5%8f%8d%e6%8e%a8-from-opposite--leaf">
@@ -305,8 +335,14 @@ bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res)
 <ul>
 <li>从很轻易判定状态的开始 (edge case), 一层一层 “向内剥”</li>
 <li><em>Topological</em>: 如果是从 leaf 开始, 可以通过<code>int[] degrees</code>判断是不是 leaf, 然后加到 queue</li>
-<li><strong>130</strong>, 207, 210, 310, <strong>339</strong>, <strong>417</strong>, 542, 547, 1162</li>
 </ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content"><strong>130</strong>, 207, <strong>210</strong>, <strong>310</strong>, 339, <strong>417</strong>, 542, 1162</div>
+</div>
+
 <hr>
 <h3 id="recursion-不常用">
   Recursion 不常用
@@ -346,7 +382,7 @@ bfs(TreeNode root, int index, List&lt;List&lt;Integer&gt;&gt;res)
       2019 -
     
     2024
-     Jesse Liu 
+     Jesse 
     ·
     
     Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.

@@ -12,7 +12,7 @@
 
 
 
-<meta name="author" content="Jesse Liu">
+<meta name="author" content="Jesse">
 <meta name="description" content="
   O(n * m)
   
@@ -42,25 +42,22 @@ inductive case: if can make recursive call
 return false if needed
 
 
-
-98, 100, 105, 112, 113, 114, 129, 226, 235, 236, 572, 1650
-
-
-Inorder traversal: left root right">
+  
+    Question
+  
+  98, 100, 105, 112, 113, 114, 129, 226, 235, 236, 572, 1650">
 <meta name="keywords" content="blog,developer,personal">
 
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="DFS">
-  <meta name="twitter:description" content=" O(n * m) Link to heading Tree Link to heading dfs(root, value) { if (!root): return false if (value = root.val): return true return dfs(root.left, newValue) || dfs(root.right, newValue) } base case: if == null inductive case: if can make recursive call return false if needed 98, 100, 105, 112, 113, 114, 129, 226, 235, 236, 572, 1650
-Inorder traversal: left root right">
+  <meta name="twitter:description" content=" O(n * m) Link to heading Tree Link to heading dfs(root, value) { if (!root): return false if (value = root.val): return true return dfs(root.left, newValue) || dfs(root.right, newValue) } base case: if == null inductive case: if can make recursive call return false if needed Question 98, 100, 105, 112, 113, 114, 129, 226, 235, 236, 572, 1650">
 
 <meta property="og:url" content="http://localhost:1313/algorithm/dfs/">
   <meta property="og:site_name" content="Never Stop Coding">
   <meta property="og:title" content="DFS">
-  <meta property="og:description" content=" O(n * m) Link to heading Tree Link to heading dfs(root, value) { if (!root): return false if (value = root.val): return true return dfs(root.left, newValue) || dfs(root.right, newValue) } base case: if == null inductive case: if can make recursive call return false if needed 98, 100, 105, 112, 113, 114, 129, 226, 235, 236, 572, 1650
-Inorder traversal: left root right">
+  <meta property="og:description" content=" O(n * m) Link to heading Tree Link to heading dfs(root, value) { if (!root): return false if (value = root.val): return true return dfs(root.left, newValue) || dfs(root.right, newValue) } base case: if == null inductive case: if can make recursive call return false if needed Question 98, 100, 105, 112, 113, 114, 129, 226, 235, 236, 572, 1650">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="algorithm">
@@ -210,20 +207,27 @@ Inorder traversal: left root right">
 <li>inductive case: if can make recursive call</li>
 <li>return false if needed</li>
 </ol>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content"><p>98, 100, <strong>105</strong>, 112, <strong>113</strong>, <strong>114</strong>, 129, 226, <strong>235</strong>, <strong>236</strong>, 572, 1650</p>
 <ul>
-<li>
-<p>98, 100, <strong>105</strong>, 112, <strong>113</strong>, <strong>114</strong>, 129, 226, <strong>235</strong>, 236, 572, <strong>1650</strong></p>
-</li>
-<li>
-<p>Inorder traversal: left root right</p>
-</li>
-<li>
-<p>Preorder traversal: root, left, right</p>
-</li>
-<li>
-<p>Postorder traversal: left, right, root</p>
-</li>
-</ul>
+<li>114 有点可怕</li>
+</ul></div>
+</div>
+
+<div class="notice note">
+  <div class="notice-title">
+    <i class="fa-solid fa-sticky-note" aria-hidden="true"></i>Note
+  </div>
+  <div class="notice-content"><ul>
+<li>Inorder traversal: left root right</li>
+<li>Preorder traversal: root, left, right</li>
+<li>Postorder traversal: left, right, root</li>
+</ul></div>
+</div>
+
 <hr>
 <h3 id="dfs-helper-function-eg-permutation---找到所有可能性">
   dfs Helper function (e.g. Permutation - 找到所有可能性)
@@ -268,14 +272,19 @@ Inorder traversal: left root right">
 <li>dfs()/main()中可以加 set 来防重
 <ul>
 <li>取决于题型: 前后 add + remove, 或者设定 true / false</li>
+<li>取决于题型: set 保存 value 还是 index</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<ul>
-<li>17, 22, 39, 40, 46, 47, 77, 78, 79, 90, <strong>93</strong>, 131, 207, 216, 526, 1079</li>
-</ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content">17, <strong>22</strong>, 39, 40, 46, <strong>47</strong>, 77, 78, 79, <strong>90</strong>, <strong>93</strong>, <strong>131</strong>, <strong>207</strong>, 216, 526, <strong>547</strong>, 1079</div>
+</div>
+
 <hr>
 <h3 id="matrix-个人喜好-bfs">
   Matrix (个人喜好 BFS)
@@ -284,9 +293,13 @@ Inorder traversal: left root right">
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<ul>
-<li><strong>212</strong> - highlight: Trie!</li>
-</ul>
+<div class="notice question">
+  <div class="notice-title">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>Question
+  </div>
+  <div class="notice-content"><strong>212</strong> - highlight: Trie!</div>
+</div>
+
 
   </article>
 </section>
@@ -302,7 +315,7 @@ Inorder traversal: left root right">
       2019 -
     
     2024
-     Jesse Liu 
+     Jesse 
     ·
     
     Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
