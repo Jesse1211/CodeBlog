@@ -22,14 +22,18 @@ aliases = ["migrate-from-jekyl"]
 ### Tree
 
 ```python
-dfs(root, value) {
+dfs(res, root, value) {
     if (!root):
-        return false
+        return
 
     if (value = root.val):
-        return true
+        res.add(root)
+        return
 
-    return dfs(root.left, newValue) || dfs(root.right, newValue)
+    for option : options:
+        做选择
+        dfs(res, newRoot, newValue)
+        撤销选择
 }
 ```
 
@@ -37,11 +41,15 @@ dfs(root, value) {
 2. inductive case: if can make recursive call
 3. return false if needed
 
+低阶
 {{< notice question >}}
-98, 100, **105**, 112, **113**, **114**, 129, 226, **235**, **236**, 572, 1650
+98, 100, 112, 129, 145, 226, 257, 404, 572, 938
+{{< /notice >}}
 
-- 114 有点可怕
-  {{< /notice >}}
+高阶
+{{< notice warning >}}
+113, 114, 124, 235, **236**, **333**, 437, 530, **536**, **865**, 1367
+{{< /notice >}}
 
 {{< notice note >}}
 
@@ -49,6 +57,7 @@ dfs(root, value) {
 - Preorder traversal: root, left, right
 - Postorder traversal: left, right, root
 
+**105**, **270**, 285, **426**, 530
 {{< /notice >}}
 
 ---
@@ -90,7 +99,11 @@ dfs(options, visited, cur, res, index){
      - 取决于题型: set 保存 value 还是 index
 
 {{< notice question >}}
-17, **22**, 39, 40, 46, **47**, 77, 78, 79, **90**, **93**, **131**, **207**, 216, 526, **547**, 1079
+17, 39, 40, 46, 77, 78, 79, 216, 526, 1079
+{{< /notice >}}
+
+{{< notice warning >}}
+22, 47, 90 , 93, 131, 207, 386, 419, 547
 {{< /notice >}}
 
 ---
@@ -99,4 +112,10 @@ dfs(options, visited, cur, res, index){
 
 {{< notice question >}}
 **212** - highlight: Trie!
+{{< /notice >}}
+
+### Trie
+
+{{< notice warning >}}
+211
 {{< /notice >}}
