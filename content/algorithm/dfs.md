@@ -64,7 +64,7 @@ dfs(res, root, value) {
 
 ### dfs Helper function (e.g. Permutation - 找到所有可能性)
 
-```python
+```JAVA
 dfs(options, visited, cur, res, index){
 	// base case
 	if index reaches limit {
@@ -72,6 +72,7 @@ dfs(options, visited, cur, res, index){
 		return;
 	}
 
+    visitedValue = new HashSet<>();    // 如果有duplication, 这里要做一个visitedValue Set防重, 不需要删除
 	for (all possible steps : i) {
 		if i in visited {
 			continue;
@@ -87,7 +88,7 @@ dfs(options, visited, cur, res, index){
 
 - dfs helper function 看情况使用
 - 一般是四个 param: (所有选项, 当前 index, res, cur)
-- _如果结果有序: 需要用 index; 如果无序: 可以用 set 来防重_
+- **如果结果有序: 需要用 index; 如果无序: 可以用 set 来防重**
 
 1. base case: index 或者 cur 达到上限
 2. inductive:
@@ -99,23 +100,17 @@ dfs(options, visited, cur, res, index){
      - 取决于题型: set 保存 value 还是 index
 
 {{< notice question >}}
-17, 39, 40, 46, 77, 78, 79, 216, 526, 1079
+17, 39, 40, 46, 47, 77, 78, 90, 131, 216, 419, 1079
 {{< /notice >}}
 
 {{< notice warning >}}
-22, 47, 90 , 93, 131, 207, 386, 419, 547
+22, 79, 93, 207, 386, 526, 547
 {{< /notice >}}
 
 ---
 
-### Matrix (个人喜好 BFS)
-
-{{< notice question >}}
-**212** - highlight: Trie!
-{{< /notice >}}
-
 ### Trie
 
 {{< notice warning >}}
-211
+211, 212
 {{< /notice >}}
