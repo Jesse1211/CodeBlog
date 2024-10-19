@@ -66,7 +66,7 @@ while (q is not empty) {
 {{< /notice >}}
 
 高阶
-{{< notice question >}}
+{{< notice warning >}}
 127, 133, 787, 815, 863, 1091, 1650
 {{< /notice >}}
 
@@ -87,13 +87,14 @@ while (q is not empty) {
 {{< /notice >}}
 
 高阶
-{{< notice question >}}
+{{< notice warning >}}
 210, 310, **317**, **329**, 417, **934**
 {{< /notice >}}
 
 {{< notice note >}}
-- 310, 329 可以用topological
-{{< /notice >}}
+
+- 310, 329 可以用 topological
+  {{< /notice >}}
 
 ---
 
