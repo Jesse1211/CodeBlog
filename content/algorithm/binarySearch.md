@@ -45,7 +45,11 @@ public int firstBadVersion(int n) {
 - **更新方法**： `left = mid + 1; right = mid - 1;`
 
 {{< notice question >}}
-33, 34, 35, 69, 74, **81**, 275, 528, **1300**
+35, **69**, **81**, **275**, **1300**
+{{< /notice >}}
+
+{{< notice warning >}}
+33, 34, 74, 528, 1539,
 {{< /notice >}}
 
 ---
@@ -75,5 +79,9 @@ public int firstBadVersion(int n) {
 - **适用场景**：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。
 
 {{< notice question >}}
-154, 162, 278, 540, 852, **1011**
+153, 278, 540, 852, **1011**
+{{< /notice >}}
+
+{{< notice warning >}}
+154, 162, **658**, 875,
 {{< /notice >}}
