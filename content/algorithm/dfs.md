@@ -49,15 +49,12 @@ dfs(res, root, value) {
 高阶
 {{< notice warning >}}
 113, 114, 124, 235, **236**, **333**, 437, 530, **536**, **865**, 1367
-{{< /notice >}}
-
-{{< notice note >}}
 
 - Inorder traversal: left root right
 - Preorder traversal: root, left, right
 - Postorder traversal: left, right, root
 
-**105**, **270**, 285, **426**, 530
+**105**, **173**, **270**, **285**, **426**, 530
 {{< /notice >}}
 
 ---
@@ -104,7 +101,7 @@ dfs(options, visited, cur, res, index){
 {{< /notice >}}
 
 {{< notice warning >}}
-22, 79, 93, 207, 386, 526, 547
+22, 79, 93, 207, 386, **526**, 547
 {{< /notice >}}
 
 ---
