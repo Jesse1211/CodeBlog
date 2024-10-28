@@ -17,12 +17,21 @@ series = ["Theme Demo"]
 aliases = ["migrate-from-jekyl"]
 +++
 
+408, 1650, 986, 31, 5, 246, 392, 19, 143, 1768, 2406, 443, 658
+2090, 480, 76
+
 ## O(nlogn) OR O(nlogn)
 
 ##### 两个 list, 分别各有一个指针
 
+低阶
 {{< notice question >}}
-349, 455, 524, **826**, **1570**
+349, 455, 524
+{{< /notice >}}
+
+高阶
+{{< notice question >}}
+826, 1570
 {{< /notice >}}
 
 ---
@@ -39,11 +48,17 @@ aliases = ["migrate-from-jekyl"]
 
 <!-- 0 $$\overrightarrow{\rm (processed)}$$ i $$\overrightarrow{\rm \text{(not needed)}}$$ j $$\overrightarrow{\rm (unknown)}$$ n -->
 
+- fast 检查 element 是否可以放到 slow 的位置 / 用于 reset 慢指针
 - slow 代表 next valid element 要放到的位置 / 用于 reset 快指针
-- fast 检查 element 是否可以放到 slow 的位置
 
+低阶
 {{< notice question >}}
-26, 27, 28, **80**, **88**, 121, 283, 50, 532, 541
+26, 27, 121, 283, 350,
+{{< /notice >}}
+
+高阶
+{{< notice warning >}}
+80, 88, 457, 532, 541
 {{< /notice >}}
 
 ---
@@ -59,13 +74,44 @@ aliases = ["migrate-from-jekyl"]
 - n (length)
 <!-- 0 $$\overrightarrow{\rm processed}$$ i $$\overline{\rm \text{unknown}}$$ j $$\overleftarrow{\rm processed}$$ n -->
 
+低阶
 {{< notice question >}}
-1, 11, 15, 16, 18, **42**, **75**, 125, 167, 344, 345, 680
+1, 11, 15, 16, 18, 75, 125, 167, 344, 345, 680
+{{< /notice >}}
+
+高阶
+{{< notice question >}}
+42
 {{< /notice >}}
 
 ---
 
 ##### Sliding Window
+
+```JAVA
+int left = 0, right = 0;
+
+while (right < nums.size()) {
+    // 增大窗口
+    window.addLast(nums[right]);
+    right++;
+
+    while (window needs shrink) {
+        // 缩小窗口
+        window.removeFirst(nums[left]);
+        left++;
+    }
+}
+```
+
+- 灵魂拷问
+  1、什么时候应该扩大窗口?
+  2、什么时候应该缩小窗口?
+  3、什么时候应该更新答案?
+- 需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left
+- Non-fixed window trick
+  - 不需要每次 slide 都要 shrink 找所有情况
+  - `res += right - left + 1;`
 
 ```bash
 fixed window size
@@ -86,16 +132,12 @@ while () {
 }
 ```
 
-- 需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left
-- Fixed window
-  {{< notice question >}}
-  219, 438, 567, 643, 1343
-  {{< /notice >}}
-- Non-fixed window
+低阶
+{{< notice question >}}
+28, 219, 438, 567, 643, 713, 1248, 1343
+{{< /notice >}}
 
-  - 算次数 trick - 不需要每次 slide 都要 shrink 找所有情况
-  - `res += right - left + 1;`
-
-  {{< notice question >}}
-  **424**, **713**, **904**, **930**, **1004**, 1248
-  {{< /notice >}}
+高阶
+{{< notice warning >}}
+**424**, **904**, **930**, **1004**, 1248
+{{< /notice >}}
