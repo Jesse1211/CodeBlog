@@ -48,7 +48,7 @@ dfs(res, root, value) {
 
 高阶
 {{< notice warning >}}
-113, 114, 124, 235, **236**, **333**, 437, 530, **536**, **865**, 1367
+113, 114, 124, 235, **250**, **236**, **333**, 437, 530, **536**, **865**, 1367
 
 - Inorder traversal: left root right
 - Preorder traversal: root, left, right
