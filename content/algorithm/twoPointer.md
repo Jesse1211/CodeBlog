@@ -17,21 +17,18 @@ series = ["Theme Demo"]
 aliases = ["migrate-from-jekyl"]
 +++
 
-408, 1650, 986, 31, 5, 246, 392, 19, 143, 1768, 2406, 443, 658
-2090, 480, 76
-
 ## O(nlogn) OR O(nlogn)
 
 ##### 两个 list, 分别各有一个指针
 
 低阶
 {{< notice question >}}
-349, 455, 524
+349, 392, 408, 455, 524
 {{< /notice >}}
 
 高阶
-{{< notice question >}}
-826, 1570
+{{< notice warning >}}
+826, 986, 1570
 {{< /notice >}}
 
 ---
@@ -46,14 +43,12 @@ aliases = ["migrate-from-jekyl"]
 - j (fast) 左边都是 not needed
 - n (length) 左边都是 unknown
 
-<!-- 0 $$\overrightarrow{\rm (processed)}$$ i $$\overrightarrow{\rm \text{(not needed)}}$$ j $$\overrightarrow{\rm (unknown)}$$ n -->
-
 - fast 检查 element 是否可以放到 slow 的位置 / 用于 reset 慢指针
 - slow 代表 next valid element 要放到的位置 / 用于 reset 快指针
 
 低阶
 {{< notice question >}}
-26, 27, 121, 283, 350,
+26, 27, 31, 121, 283, 350, 443, 3163
 {{< /notice >}}
 
 高阶
@@ -72,15 +67,14 @@ aliases = ["migrate-from-jekyl"]
 - i (left) 左边都是 processed
 - j (right) 右边都是 processed
 - n (length)
-<!-- 0 $$\overrightarrow{\rm processed}$$ i $$\overline{\rm \text{unknown}}$$ j $$\overleftarrow{\rm processed}$$ n -->
 
 低阶
 {{< notice question >}}
-1, 11, 15, 16, 18, 75, 125, 167, 344, 345, 680
+1, 5, 11, 15, 16, 18, 75, 125, 167, 344, 345, 680
 {{< /notice >}}
 
 高阶
-{{< notice question >}}
+{{< notice warning >}}
 42
 {{< /notice >}}
 
@@ -134,10 +128,10 @@ while () {
 
 低阶
 {{< notice question >}}
-28, 219, 438, 567, 643, 713, 1248, 1343
+19, 28, 219, 438, 567, 643, 713, 1248, 1343, 1423, 2090
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-**424**, **904**, **930**, **1004**, 1248
+**76**, **424**, **904**, **930**, **1004**, 1248, 2090
 {{< /notice >}}
