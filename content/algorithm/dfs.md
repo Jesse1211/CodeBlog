@@ -2,19 +2,6 @@
 authors = ["Jesse"]
 title = "DFS"
 date = "2024-10-13"
-tags = [
-    "hugo",
-    "markdown",
-    "css",
-    "html",
-    "shortcodes",
-]
-categories = [
-    "theme demo",
-    "syntax",
-]
-series = ["Theme Demo"]
-aliases = ["migrate-from-jekyl"]
 +++
 
 ## O(n \* m)
@@ -43,18 +30,27 @@ dfs(res, root, value) {
 
 低阶
 {{< notice question >}}
-98, 100, 112, 129, 145, 226, 257, 404, 572, 938
+98, 100, 112, 113, **124**, **129**, 145, 226, 235, 236, 257, **333**, 404, 572, **865**, 938, **1367**
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-113, 114, 124, 235, **250**, **236**, **333**, 437, 530, **536**, **865**, 1367
+114, 250
+{{< /notice >}}
+
+---
 
 - Inorder traversal: left root right
 - Preorder traversal: root, left, right
 - Postorder traversal: left, right, root
 
-**105**, **173**, **270**, **285**, **426**, 530
+低阶
+{{< notice question >}}
+173, 270, 426, 437, 530
+{{< /notice >}}
+高阶
+{{< notice warning >}}
+105, 285, 426
 {{< /notice >}}
 
 ---
@@ -97,11 +93,14 @@ dfs(options, visited, cur, res, index){
      - 取决于题型: set 保存 value 还是 index
 
 {{< notice question >}}
-17, 39, 40, 46, 47, 77, 78, 90, 131, 216, 419, 1079
+17, 22, 39, 46, 77, 78, 79, **131**, 216, 386, 419, **547**
 {{< /notice >}}
 
 {{< notice warning >}}
-22, 79, 93, 207, 386, **526**, 547
+93, 526, 547
+
+- 防重技巧: 40, 47, 90, 1079
+
 {{< /notice >}}
 
 ---
