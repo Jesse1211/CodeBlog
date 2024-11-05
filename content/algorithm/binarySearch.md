@@ -83,5 +83,5 @@ public int firstBadVersion(int n) {
 {{< /notice >}}
 
 {{< notice warning >}}
-154, 162, **658**, 875, **1011**
+154, 162, **300**, **658**, 875, **1011**, **1802**, **2422**
 {{< /notice >}}

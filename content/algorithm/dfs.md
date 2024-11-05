@@ -35,7 +35,7 @@ dfs(res, root, value) {
 
 高阶
 {{< notice warning >}}
-114, 250
+114, 250, **298**, 1650
 {{< /notice >}}
 
 ---
@@ -46,11 +46,11 @@ dfs(res, root, value) {
 
 低阶
 {{< notice question >}}
-173, 270, 426, 437, 530
+173, 270, 437, 530
 {{< /notice >}}
 高阶
 {{< notice warning >}}
-105, 285, 426
+105, 285, **426**
 {{< /notice >}}
 
 ---
@@ -93,11 +93,11 @@ dfs(options, visited, cur, res, index){
      - 取决于题型: set 保存 value 还是 index
 
 {{< notice question >}}
-17, 22, 39, 46, 77, 78, 79, **131**, 216, 386, 419, **547**
+17, 22, 39, 46, 77, 78, 79, **131**, 216, 386, 419
 {{< /notice >}}
 
 {{< notice warning >}}
-93, 526, 547
+93, 526, **694**, 547
 
 - 防重技巧: 40, 47, 90, 1079
 
@@ -110,3 +110,7 @@ dfs(options, visited, cur, res, index){
 {{< notice warning >}}
 211, 212
 {{< /notice >}}
+
+### Time Complexity
+
+- **x^n**: n 个 node, 每个 node 都可以做 x 次 recursive call

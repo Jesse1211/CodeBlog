@@ -2,19 +2,6 @@
 authors = ["Jesse"]
 title = "BFS"
 date = "2024-10-13"
-tags = [
-    "hugo",
-    "markdown",
-    "css",
-    "html",
-    "shortcodes",
-]
-categories = [
-    "theme demo",
-    "syntax",
-]
-series = ["Theme Demo"]
-aliases = ["migrate-from-jekyl"]
 +++
 
 ## Shortcodes O(n \* m)
@@ -23,9 +10,13 @@ aliases = ["migrate-from-jekyl"]
 while (q is not empty) {
 	traverse q {
 		var cur = q.poll();
+
 		traverse cur.children {
 			if cur.child is valid {
-				add cur.child to q
+				if (cur.child is valid) {
+					do something;
+					add cur.child to q;
+				}
 			}
 		}
 	}
@@ -38,12 +29,12 @@ while (q is not empty) {
 
 低阶
 {{< notice question >}}
-102, 103, 104, 107, 111, 116, 117, 199, 429, 513, 515, 559, 1609,
+102, 103, 104, 107, 111, 116, 117, 199, 429, 513, 515, 559, 1609
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-261, 297, 314, 958, 987
+**261**, 297, 314, 958, 987, **1530**
 {{< /notice >}}
 
 ---
@@ -62,12 +53,12 @@ while (q is not empty) {
 
 低阶
 {{< notice question >}}
-200, 279, 322, 690, 733, 752
+**127**, 200, 279, 322, **365**, 690, 733, **752**
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-127, 133, **301**, 787, 815, 863, 1091, 1650
+133, **301**, 787, 815, 863, 1091, **1584**
 {{< /notice >}}
 
 {{< notice note >}}
@@ -83,18 +74,13 @@ while (q is not empty) {
 
 低阶
 {{< notice question >}}
-130, 207, 286, 339, 542, 1162
+130, 207, 286, 339, **364**, 417, 542, 1162
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-210, 310, **317**, **329**, 417, **934**
+210, 310, **317**, **329**, **934**
 {{< /notice >}}
-
-{{< notice note >}}
-
-- 310, 329 可以用 topological
-  {{< /notice >}}
 
 ---
 
