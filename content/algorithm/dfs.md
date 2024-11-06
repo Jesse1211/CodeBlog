@@ -1,7 +1,6 @@
 +++
 authors = ["Jesse"]
 title = "DFS"
-date = "2024-10-13"
 +++
 
 ## O(n \* m)

@@ -1,20 +1,6 @@
 +++
 authors = ["Jesse"]
 title = "Linked List"
-date = "2024-10-13"
-tags = [
-    "hugo",
-    "markdown",
-    "css",
-    "html",
-    "shortcodes",
-]
-categories = [
-    "theme demo",
-    "syntax",
-]
-series = ["Theme Demo"]
-aliases = ["migrate-from-jekyl"]
 +++
 
 # Linked List:

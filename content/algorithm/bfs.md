@@ -1,7 +1,6 @@
 +++
 authors = ["Jesse"]
 title = "BFS"
-date = "2024-10-13"
 +++
 
 ## Shortcodes O(n \* m)
