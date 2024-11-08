@@ -25,6 +25,7 @@ aliases = ["migrate-from-jekyl"]
 921
 1762
 173
+636
 
 # heap
 2406
@@ -36,3 +37,6 @@ aliases = ["migrate-from-jekyl"]
 
 # Design
 380
+
+# Hash Table
+939

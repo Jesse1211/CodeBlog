@@ -7,10 +7,6 @@ title = "Linked List"
 
 **707**
 
-{{< notice warning >}}
-**143**, **147**, **287**, **148**, **430**
-{{< /notice >}}
-
 ## 反转
 
 ```JAVA
@@ -60,11 +56,17 @@ public ListNode reverseList(ListNode head) {
 ### 双指针
 
 {{< notice question >}}
-82, 86, 141, 142, 328, **2807**
+82, 86, 141, 142, **147**, **287**, 328, **2807**
 {{< /notice >}}
 
 ## 操作两个链表
 
 {{< notice question >}}
 **2**, 21, **23**, 160
+{{< /notice >}}
+
+## Merge
+
+{{< notice question >}}
+**143**, **148**,
 {{< /notice >}}

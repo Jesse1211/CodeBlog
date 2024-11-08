@@ -3,71 +3,84 @@ authors = ["Jesse"]
 title = "Binary Search"
 +++
 
+因为 x / 2 永远被 floor, 所以永远都要**从右向左**找
+
 ## O(log n)
 
-#### Inclusive `while (left <= right)` (精确匹配并可能返回索引)
-
-```java
-public int firstBadVersion(int n) {
-	int low = 1;
-	int high = n;
-	while(low<=high){
-		int mid = low + (high-low)/2;
-		if(isBadVersion(mid)){
-			high = mid - 1;
-		}
-		else {
-			low = mid + 1;
-		}
+```JAVA
+int low = 1; // min boundry
+int high = n; // max boundry
+while(low <= high){ // depends
+	int mid = low + (high-low)/2;
+	if(){
+		high = mid...
 	}
-	return low;
+	else {
+		low = mid...
+	}
 }
 ```
 
-- **适用场景**：查找并且直接返回符合的元素
-- 需要检查`left == right`的时候. 适用于查找唯一 index 场景
-  - 如果完全符合, 直接返回
-  - 如果最终无功而返, 返回最后 update 的 low - round up. 因为这时 low > high
-- **更新方法**： `left = mid + 1; right = mid - 1;`
+#### Inclusive `while (left <= right)` (精确匹配并可能返回索引)
+
+- **适用场景**：当拿到 mid 的时候, **很清楚** mid 是/不是最终结果
+  - 查找并且直接返回符合的元素, 找 specific value,
 
 {{< notice question >}}
-33, 35, 74, 81
+33, 74, 81, 162
 {{< /notice >}}
 
 {{< notice warning >}}
-**34**, 69, **275**, **272**, 302, **528**, **1300**, 1539,
+**275**, **1539**
 {{< /notice >}}
 
 ---
 
 #### Exclusive `while (left < right)` (在区间中查找边界或条件)
 
-```java
-	public int peakIndexInMountainArray(int[] arr) {
-		int left = 0;
-		int right = arr.length - 1;
-			while (left < right) {
-				int mid = left + (right - left) / 2;
-				if (arr[mid] < arr[mid+1]) {
-					left = mid + 1;
-				}
-				else {
-					right = mid;
-				}
-			}
-		return right;
-	}
-```
-
-- 不检查`left == right`
-- 在区间中查找一个 boundary，上界/下界。
-- **更新方法**：`left = mid 或者 mid + 1; right = mid 或者 mid - 1`
-- **适用场景**：需要找到满足某些条件的边界值，如寻找最左侧或最右侧的满足条件的元素。
+- **适用场景**：找边界值，**不清楚** mid 是/不是最终结果
+  - 在区间中查找一个 boundary，上界/下界
 
 {{< notice question >}}
-153, 278, 540, 852
+**34**, 35, 69, 153, 154, 278, 540, 852, **875**
 {{< /notice >}}
 
 {{< notice warning >}}
-154, 162, **300**, **658**, 875, **1011**, **1802**, **2422**
+154, **528**, **1011**,**1300**, **1802**, **2422**
 {{< /notice >}}
+
+#### 找一个 window 的最左侧
+
+如果每个 element 是 unique, 那直接跳到第二部分 - inside the segment
+
+```JAVA
+int left = 0;
+int right = arr.size() - k;
+while (left < right) {
+	int mid = left + (right - left) / 2;
+	// 1. outside the segment
+	if (arr[mid + k] < x) {
+		// x = 3
+		// [1,1,2],3,4,5
+		left = mid + 1;
+	} else if (arr[mid] > x) {
+		// x = 1
+		// 1,2,[3,4,5]
+		right = mid;
+	} else {
+		// 2. inside the segment
+		if (Math.abs(x - arr[mid + k]) < Math.abs(x - arr[mid])) {
+			// target距离右边近
+			left = mid + 1;
+		} else {
+			right = mid;
+		}
+	}
+}
+```
+
+**272**, **658**
+
+#### Binary Search Insertion
+
+**300**
