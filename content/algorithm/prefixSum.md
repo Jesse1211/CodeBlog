@@ -8,16 +8,133 @@ title = "Prefix Sum"
 通过预先累积和存储之前的数值，使得之后使用极大地降低区间查询的时间复杂度
 
 - HashMap / Array: 匹配个数
-- Preorder: Tree related (1590)
-- Sum 和 traverse 分开: 找不是相连的 Subarray,
-- Sum 和 traverse 合一起: 相连的
 
-### Sum 和 find 分开
+### Sum 和 find 分开 - 找不相连的 Subarray
 
 1. 整个 Array 中搜索某个特定 index
    - 两个方向算 Sum, 然后找关联.
 2. 找当前 index 之前的关联
    - 一个方向算 Sum
+
+低阶
+{{< notice question >}}
+724
+{{< /notice >}}
+
+高阶
+{{< notice warning >}}
+1094, 2406, 2874, 2909
+{{< /notice >}}
+
+### Sum 和 find 同步 - 找相连的 Subarray
+
+```JAVA
+int sum = 0;
+HashMap<Integer, Integer> map = new HashMap();
+
+for (int num : nums) {
+    sum += num;
+
+    if (map.containsKey(sum)) {
+        ...
+        // 重点:
+        // 1. res + 1
+        // 2. res + map.get(sum)
+        // 3. res + curIndex - map.get(sum)
+    } else {
+        ...
+    }
+}
+```
+
+低阶
+{{< notice question >}}
+325, 523, **525**, 560, 974, 1109
+{{< /notice >}}
+
+高阶
+{{< notice warning >}}
+1590
+{{< /notice >}}
+
+### 益智
+
+238, 670
+
+# Cheat
+
+## Intervals
+
+两种方式
+
+1. 找 min & max 做 array
+2. treeMap, 它会自动 sort - log n
+
+````JAVA
+Map<Integer, Integer> map = new TreeMap<>(); // time : count
+
+for (int[] i : intervals) {
+    int left = i[0];
+    int right = i[1];
+    map.put(left, map.getOrDefault(left, 0) + 1);
+    map.put(right + 1, map.getOrDefault(right + 1, 0) - 1);
+}
+
+int count = 0;
+int res = 0;
+for (int i : map.values()) {
+    count += i;
+    res = Math.max(count, res);
+}
+```
+````
+
+## 差分 - 反向寻找
+
+1590 - 求和的逆运算
+
+找那个不要的部分的 window
+
+**在 map 查找的时候, 找的 window 不是完美 split 的, 要找和 total % p 一样关联的**
+
+```JAVA
+// 找最小的window, windowSum mod p = totalSum mod p
+int total = 0;
+for (int num : nums) {
+    total += num;
+    total %= p;
+}
+
+if (total == 0) {
+    return 0;
+}
+
+int sum = 0; // the window's sum which to be removed
+int res = nums.length;
+Map<Integer, Integer> map = new HashMap<>();
+map.put(0, -1);
+
+for (int i = 0; i < nums.length; i++) {
+    sum = (sum + nums[i]) % p;
+
+    int needed = (sum - total + p) % p; // 这个window的mod和total要符合, 而不是找mod 0的
+
+    if (map.containsKey(needed)) {
+        res = Math.min(res, i - map.get(needed));
+    }
+
+    map.put(sum, i);
+}
+
+return res == nums.length ? -1 : res;
+
+```
+
+## 找出最大的 x y z 组合
+
+拿到左边最大的值 - x
+拿到右边最大的值 - y
+traverse 每一个 index - z
 
 ```JAVA
 int n = nums.length;
@@ -28,8 +145,8 @@ minFromLeft[0] = nums[0];
 minFromRight[n - 1] = nums[n - 1];
 
 for (int i = 1; i < n; i++) {
-    minFromLeft[i] = Math.min(minFromLeft[i - 1], nums[i]);
-    minFromRight[n - i - 1] = Math.min(minFromRight[n - i], nums[n - i - 1]);
+    minFromLeft[i] = Math.max(minFromLeft[i - 1], nums[i]);
+    minFromRight[n - i - 1] = Math.max(minFromRight[n - i], nums[n - i - 1]);
 }
 
 int res = Integer.MAX_VALUE;
@@ -40,33 +157,3 @@ for (int i = 1; i < n - 1; i ++) {
     // 在这里找关联
 }
 ```
-
-{{< notice question >}}
-238, **670**, **724**, **1094**, 1590, **2406**, **2874**, **2909**
-{{< /notice >}}
-
-### Sum 和 find 同步
-
-```JAVA
-int count = 0, currSum = 0;
-HashMap<Integer, Integer> h = new HashMap();
-
-for (int num : nums) {
-    currSum += num;
-
-    if (currSum == ???)
-        count++;
-
-    count += h.getOrDefault(currSum - k, 0);
-
-    h.put(currSum, h.getOrDefault(currSum, 0) + 1);
-}
-```
-
-{{< notice question >}}
-325, 437, 523, 525, 560, 974, 1004, **1109**,
-{{< /notice >}}
-
-## 差分
-
-求和的逆运算

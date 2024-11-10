@@ -9,12 +9,12 @@ title = "Two Pointer"
 
 低阶
 {{< notice question >}}
-349, 392, 408, 455, 524
+349, 350, 392, 408, 455, 524
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-826, 986, 1570
+**475**, 826, 986, 1570
 {{< /notice >}}
 
 ---
@@ -25,21 +25,25 @@ title = "Two Pointer"
 0 -> i -> j -> n
 ```
 
-- i (slow) 左边都是 processed
+- i (slow) 左边都是 processed`
 - j (fast) 左边都是 not needed
 - n (length) 左边都是 unknown
 
-- fast 检查 element 是否可以放到 slow 的位置 / 用于 reset 慢指针
-- slow 代表 next valid element 要放到的位置 / 用于 reset 快指针
+第一步: 判断 slow & fast 他们应该代表什么
+
+第二部: loop:
+
+- fast 什么时候要+1
+- 检查 slow 和 fast 的关系
 
 低阶
 {{< notice question >}}
-26, 27, 31, 121, 283, 350, 443, 3163
+26, 27, 31, 88, 121, 283, 443, 3163
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-80, 88, 457, 532, 541
+80, **457**, 1004
 {{< /notice >}}
 
 ---
@@ -56,12 +60,12 @@ title = "Two Pointer"
 
 低阶
 {{< notice question >}}
-1, 5, 11, 15, 16, 18, 75, 125, 167, 344, 345, 680
+75, 125, 167, 541, 611, 680, **881**
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-42, 259
+42, 259, **923**
 {{< /notice >}}
 
 ---
@@ -114,10 +118,53 @@ while () {
 
 低阶
 {{< notice question >}}
-3, 19, 28, 219, 438, 567, 643, 713, 1248, 1343, 1423, 2090
+3, 28, **219**, 438, 567, 713, 930, 1343, 1423, 1658
 {{< /notice >}}
 
 高阶
 {{< notice warning >}}
-**76**, **424**, **904**, **930**, 1248, 2090
+76, **424**, **532**, 904, **1052**, **2090**
 {{< /notice >}}
+
+# Cheats
+
+#### 找 interval intersections
+
+```JAVA
+int newStart = Math.max(leftStart, rightStart);
+int newEnd = Math.min(leftEnd, rightEnd);
+// there is overlapped
+if (newStart <= newEnd) {
+    list.add(new int[] { newStart, newEnd });
+}
+```
+
+#### 找 window sum 等于 x
+
+重点: res += 当前 window 所有数值
+
+```JAVA
+public int numSubarraysWithSum(int[] nums, int goal) {
+    return findAll(nums, goal) - findAll(nums, goal - 1);
+}
+
+private int findAll(int[] nums, int goal) {
+    int left = 0;
+    int right = 0;
+    int res = 0;
+    int cur = 0;
+    while (right < nums.length) {
+        cur += nums[right];
+
+        while (cur > goal && left <= right) {
+            cur -= nums[left];
+            left++;
+        }
+
+        int window = right - left + 1; // 加上window里面所有情况
+        res += window;
+        right++;
+    }
+    return res;
+}
+```
