@@ -27,7 +27,7 @@ while(low <= high){ // depends
   - 查找并且直接返回符合的元素, 找 specific value,
 
 {{< notice question >}}
-33, 74, 81, 162
+33, 74, 81, 162, **367**
 {{< /notice >}}
 
 {{< notice warning >}}

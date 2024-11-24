@@ -44,7 +44,7 @@ public ListNode reverseList(ListNode head) {
 ### 反转系列
 
 {{< notice question >}}
-**92**, **206**, **234**
+24, **92**, **206**, **234**
 {{< /notice >}}
 
 ### Sliding Window
@@ -56,7 +56,7 @@ public ListNode reverseList(ListNode head) {
 ### 双指针
 
 {{< notice question >}}
-19, 82, 86, 141, 142, **147**, **287**, 328, **2807**
+19, 82, 86, 141, 142, **147**, **287**, 328, 708, **2807**
 {{< /notice >}}
 
 ## 操作两个链表

@@ -17,7 +17,7 @@ title = "Data Structure"
 
 高阶
 {{< notice warning >}}
-536, 636, 1209, 1944
+227, 536, 636, 1209, 1249, 1944
 {{< /notice >}}
 1472
 
@@ -26,10 +26,15 @@ title = "Data Structure"
 2406
 295
 480
+648
 
 # Trie
 
-14
+14, 139
+
+{{< notice warning >}}
+211, 212
+{{< /notice >}}
 
 # Design
 
@@ -37,4 +42,4 @@ title = "Data Structure"
 
 # Hash Table
 
-**532**, 939,
+**532**, **791**, 939,

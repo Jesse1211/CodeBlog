@@ -14,7 +14,7 @@ title = "Two Pointer"
 
 高阶
 {{< notice warning >}}
-**475**, 826, 986, 1570
+163, **475**, 826, 986, 1570
 {{< /notice >}}
 
 ---
@@ -125,6 +125,12 @@ while () {
 {{< notice warning >}}
 76, **424**, **532**, 904, **1052**, **2090**
 {{< /notice >}}
+
+
+{{< notice note >}}
+另类sliding window: 621, 2365
+{{< /notice >}}
+
 
 # Cheats
 

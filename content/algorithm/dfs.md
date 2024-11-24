@@ -104,11 +104,6 @@ dfs(options, visited, cur, res, index){
 
 ---
 
-### Trie
-
-{{< notice warning >}}
-211, 212
-{{< /notice >}}
 
 ### Time Complexity
 

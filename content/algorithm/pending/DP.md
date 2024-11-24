@@ -114,3 +114,6 @@ public int longestCommonSubsequence(String text1, String text2) {
 	return dp[0][0];
 }
 ```
+
+
+139
