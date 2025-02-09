@@ -9,7 +9,7 @@ title = "Two Pointer"
 
 低阶
 {{< notice question >}}
-349, 350, 392, 408, 455, 524
+408, 524
 {{< /notice >}}
 
 高阶
