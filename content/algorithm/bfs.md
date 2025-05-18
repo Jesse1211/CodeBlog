@@ -38,16 +38,14 @@ while (q is not empty) {
 - [x] 107 - ⭐️ boolean ifReverse
 - [x] 117 - ⭐️⭐️ 特殊处理每层第一个 node
 - [x] 199 - ⭐️⭐️ 特殊处理每层最后一个 node
-- [x] 261 - ⭐️⭐️⭐️ Queue 配合 Set, 不需要 Topological Sort(已知起点为 0)
-- [ ] 297 - ⭐️⭐️⭐️ Tree Serialization
-- [x] 314 - ⭐️⭐️⭐️ Map 应用于 column 信息, 额外的 Queue 保存每个 Node 的 Index
-- [ ] 449 - ⭐️⭐️⭐️ Tree Serialization
-- [ ] 513
-- [x] 662 - ⭐️⭐️⭐️⭐️ 314 增强版. 注意 Index (x \* 2 + 1), min & max 计算方式 (min 等于每个 level 的第一个 node.index)
-- [ ] 958
-- [ ] 987
-- [ ] 1530
-- [ ] 1609
+- [x] 261 - ❤️ ⭐️⭐️⭐️ Queue 配合 Set, 不需要 Topological Sort(已知起点为 0)
+- [ ] 297 - ❤️ ⭐️⭐️⭐️ Tree Serialization
+- [x] 314 - ❤️ ⭐️⭐️⭐️ Map 应用于 column 信息, 额外的 Queue 保存每个 Node 的 Index
+- [ ] 449 - ❤️ ⭐️⭐️⭐️ Tree Serialization
+- [x] 662 - ❤️ ⭐️⭐️⭐️⭐️ 314 增强版. 注意 Index (x \* 2 + 1), min & max 计算方式 (min 等于每个 level 的第一个 node.index)
+- [x] 958 - ⭐️ 如何判定结束?
+- [x] 987 - ⭐️⭐️⭐️ 314 增强版, 相同 index & level 重新 sort
+- [ ] 1530 - ❤️ ⭐️⭐️⭐️⭐️⭐️
 
 {{< /notice >}}
 
