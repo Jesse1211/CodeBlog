@@ -9,6 +9,11 @@ title = "Prefix Sum"
 
 - HashMap / Array: 匹配个数
 
+{{< notice note >}}
+2237: 建立 hashmap 的时候, 要考虑好右边 index 的信息, 因为右边一般是要-1, 但是要 index+1
+2021: 考虑好 edge case, prefix 如果不是 Array, 那么 list 该如何 sort 要想全面
+{{< /notice >}}
+
 ### Sum 和 find 分开 - 找不相连的 Subarray
 
 1. 整个 Array 中搜索某个特定 index
@@ -16,9 +21,24 @@ title = "Prefix Sum"
 2. 找当前 index 之前的关联
    - 一个方向算 Sum
 
+```java
+int[] count = new int[n];
+
+for (int[] light : lights) {
+    int left = Math.max(0, light[0] - light[1]);
+    int right = Math.min(n - 1, light[0] + light[1]);
+    count[left]++;
+
+    if (right < n - 1) {
+        // -1是放在最右边能照到的位置+1, prefix经典考点
+        count[right + 1]--;
+    }
+}
+```
+
 低阶
 {{< notice question >}}
-724
+724, 2021, 2237
 {{< /notice >}}
 
 高阶

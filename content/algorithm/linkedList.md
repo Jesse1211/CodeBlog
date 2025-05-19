@@ -44,7 +44,7 @@ public ListNode reverseList(ListNode head) {
 ### 反转系列
 
 {{< notice question >}}
-24, **92**, **206**, **234**
+24, 25, **92**, **206**, **234**
 {{< /notice >}}
 
 ### Sliding Window

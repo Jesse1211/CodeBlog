@@ -29,12 +29,30 @@ dfs(res, root, value) {
 
 低阶
 {{< notice question >}}
-98, 100, 112, 113, **124**, **129**, 145, 226, 235, 236, 257, **333**, 404, 572, **865**, 938, 1367, 1650
-{{< /notice >}}
 
-高阶
-{{< notice warning >}}
-114, 250, 298, 430, 1530
+- [x] 98 - ⭐️ 经典 BST validation
+- [x] 113 - ⭐️ 经典 DFS, recursion 前 list.add(), 后 list.removeLast(). base case res.add(new ArrayList<>(list))
+- [ ] 114
+- [ ] 124
+- [ ] 129
+- [ ] 145
+- [ ] 226
+- [ ] 235
+- [ ] 236
+- [ ] 250
+- [ ] 257
+- [ ] 298
+- [ ] 333
+- [ ] 404
+- [ ] 430
+- [ ] 449 - ❤️ ⭐️⭐️⭐️⭐️ Tree Serialization, postorder, Stack, dfs
+- [ ] 572
+- [ ] 865
+- [ ] 938
+- [ ] 1367
+- [ ] 1530 - ❤️ ⭐️⭐️⭐️⭐️⭐️
+- [ ] 1650
+
 {{< /notice >}}
 
 ---
@@ -103,7 +121,6 @@ dfs(options, visited, cur, res, index){
 {{< /notice >}}
 
 ---
-
 
 ### Time Complexity
 
