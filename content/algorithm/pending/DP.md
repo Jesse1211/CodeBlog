@@ -1,22 +1,7 @@
 +++
 authors = ["Jesse"]
 title = "Dynamic Programming"
-date = "2024-10-13"
-tags = [
-    "hugo",
-    "markdown",
-    "css",
-    "html",
-    "shortcodes",
-]
-categories = [
-    "theme demo",
-    "syntax",
-]
-series = ["Theme Demo"]
-aliases = ["migrate-from-jekyl"]
 +++
-
 
 ## DP
 
@@ -114,6 +99,5 @@ public int longestCommonSubsequence(String text1, String text2) {
 	return dp[0][0];
 }
 ```
-
 
 139

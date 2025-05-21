@@ -1,6 +1,6 @@
 +++
 authors = ["Jesse"]
-title = "BFS"
+title = "Breath-First Search"
 +++
 
 ## Shortcodes O(n \* m)
