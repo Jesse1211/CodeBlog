@@ -1,11 +1,65 @@
 +++
 authors = ["Jesse"]
-title = "DFS"
+title = "Depth-First Search"
 +++
 
-## O(n \* m)
+---
 
-### Tree
+## Tree `O(n \* m)`
+
+### Traverse by Orders
+
+```python
+dfs(root) {
+    // preorder
+    dfs(root.left)
+    // inorder
+    dfs(root.right)
+    // postorder
+}
+```
+
+```text
+     1
+   /   \
+  2     3
+ / \   / \
+4   5 6   7
+```
+
+- Preorder traversal: root, left, right: `1245367`
+- Inorder traversal: left root right: `4251637`
+- Postorder traversal: left, right, root: `4526731`
+- 大部分时候是 **void** inorder(), preorder(), postorder()
+
+{{< notice question >}}
+
+🌟🌟🌟🌟 Preorder
+
+114 - 反着做 preorder
+430 - Flatten DoublyLinkedList, (OR 普通的 while loop)
+437 - 用 Map 记录 value, 类似 prefix sum
+
+🌟🌟 Inorder
+
+285 - Tree 快慢指针
+426 - Tree 转成 Sorted Doubly LinkedList
+510 - 285 增强, 画图 & while loop 反推 (左中右 -> 右中左)
+
+🌟🌟🌟🌟 Postorder
+
+449 - Tree (De)serialization, Stack, dfs
+
+🌟🌟🌟🌟 Mix
+
+105 - serialize from preorder & inorder
+106 - serialize from postorder & inorder
+
+{{< /notice >}}
+
+---
+
+### 基于 Traverse Orders, 更实用的 useage
 
 ```python
 dfs(res, root, value) {
@@ -23,105 +77,95 @@ dfs(res, root, value) {
 }
 ```
 
-1. base case: if == null
-2. inductive case: if can make recursive call
-3. return false if needed
+- 步骤
 
-低阶
+  1. base case: if root == null
+  2. inductive case: if can make recursive call
+  3. return
+
+- Helper functions
+  - depth(), isBST(), nodeCount(), dfs()
+  - 讲究 order 时 (一般用 **PostOrder** 方式)
+    - dfs() return TreeNode
+    - 根据 returned left & right 判断
+
 {{< notice question >}}
 
-- [x] 98 - ⭐️ 经典 BST validation
-- [x] 113 - ⭐️ 经典 DFS, recursion 前 list.add(), 后 list.removeLast(). base case res.add(new ArrayList<>(list))
-- [ ] 114
-- [ ] 124
-- [ ] 129
-- [ ] 145
-- [ ] 226
-- [ ] 235
-- [ ] 236
-- [ ] 250
-- [ ] 257
-- [ ] 298
-- [ ] 333
-- [ ] 404
-- [ ] 430
-- [ ] 449 - ❤️ ⭐️⭐️⭐️⭐️ Tree Serialization, postorder, Stack, dfs
-- [ ] 572
-- [ ] 865
-- [ ] 938
-- [ ] 1367
-- [ ] 1530 - ❤️ ⭐️⭐️⭐️⭐️⭐️
-- [ ] 1650
+⭐️⭐️⭐️ Tree
+
+333 - 经典 DFS, recursive main & recursive helper function
+124 - ❤️ res 不一定是 leaf -> leaf path
+236 - ❤️ 三选一 return left, right, root
+250 - ❤️ helper return bool 判定 univalue subtree
+1650 - ❤️ helper return bool (另一个逻辑: set)
 
 {{< /notice >}}
 
 ---
 
-- Inorder traversal: left root right
-- Preorder traversal: root, left, right
-- Postorder traversal: left, right, root
+## 其他不同的格式 O(2^N) 每个元素用一次, 每个元素只有两种选择
 
-低阶
+### 逻辑相似 (e.g. Permutation - 找到所有可能性)
+
+- helper function 必不可少
+  - `dfs(所有选项, 当前 index, res, cur)`
+- index 注意:
+  - base case & recursive call 中的 index 判定: `Value | Index`
+- 步骤
+
+  1. base case: index 或者 cur 达到上限
+  2. inductive:
+
+  - recursive call with new index & cur
+    - `cur.add() + dfs(...) + cur.remove()`
+  - 如果是更改 input, 需要快慢指针 swap 来代替 cur 和 res
+  - dfs()/main()中可以加 set 来防重
+    - 取决于题型: 前后 add + remove, 或者设定 true / false
+    - 取决于题型: set 保存 value 还是 index
+
+- 防重
+
+  ```java
+  // 1. 如果Traverse strategy每次从index开始, 必须要sort
+  Arrays.sort(num)
+
+  // 2. 当前**traverse**中, 不能重复使用某元素
+  if (visitedIndex.contains(i)) {
+      continue;
+  }
+
+  // 3. 当前**level**中, 不能以相同数值做起点 (用nums[i] == nums[i-1]代替set)
+  Set<Integer> visitedValue = new HashSet<>();
+  for (i from x to y) {
+    if (visitedValue.contains(nums[i])) {
+        continue;
+    }
+
+    visitedValue.add(nums[i]);
+  }
+  ```
+
 {{< notice question >}}
-173, 270, **437**, **510**, 530
-{{< /notice >}}
-高阶
-{{< notice warning >}}
-105, 106, 285, 426
+
+⭐️ 防重
+47 - for loop 起点为 0
+90 - for loop 起点为 index
+526 - 用 boolean list 整体防重
+
+⭐️⭐️ Matrix: BFS / DFS 都可以
+
+79
+419
+547
+694
+
+⭐️⭐️⭐️ 灵活运用
+17
+51
+93
+131 - traverse 所有组合, 每个组成的 substring 检查是不是 palindrome
+216
+
 {{< /notice >}}
 
 ---
-
-### dfs Helper function (e.g. Permutation - 找到所有可能性)
-
-```JAVA
-dfs(options, visited, cur, res, index){
-	// base case
-	if index reaches limit {
-		res.add(new cur);
-		return;
-	}
-
-    visitedValue = new HashSet<>();    // 如果有duplication, 这里要做一个visitedValue Set防重, 不需要删除
-	for (all possible steps : i) {
-		if i in visited {
-			continue;
-		}
-		visited.add(i);
-		cur.add(i);
-		dfs(options, visited, i, res, newIndex);
-		cur.remove(cur.size() - 1);
-		visited.remove(i);
-	}
-}
-```
-
-- dfs helper function 看情况使用
-- 一般是四个 param: (所有选项, 当前 index, res, cur)
-- **如果结果有序: 需要用 index; 如果无序: 可以用 set 来防重**
-
-1. base case: index 或者 cur 达到上限
-2. inductive:
-   - recursive call with new index & cur
-     - **cur.add()** + dfs(...) + **cur.remove()**
-   - 如果是更改 input, 需要快慢指针 swap 来代替 cur 和 res
-   - dfs()/main()中可以加 set 来防重
-     - 取决于题型: 前后 add + remove, 或者设定 true / false
-     - 取决于题型: set 保存 value 还是 index
-
-{{< notice question >}}
-17, 22, 39, 46, 77, 78, 79, **131**, 216, 386, 419
-{{< /notice >}}
-
-{{< notice warning >}}
-51, 93, 526, 694, 547
-
-- 防重技巧: 40, 47, 90, 1079
-
-{{< /notice >}}
-
----
-
-### Time Complexity
-
-- **x^n**: n 个 node, 每个 node 都可以做 x 次 recursive call
