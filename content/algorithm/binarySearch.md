@@ -3,50 +3,77 @@ authors = ["Jesse"]
 title = "Binary Search"
 +++
 
-因为 x / 2 永远被 floor, 所以永远都要**从右向左**找
+- 因为 x / 2 永远被 floor, 所以永远都要**从右向左**找
+- 写出&总结所有情况 test case, 对症下药
 
 ## O(log n)
 
-```JAVA
-int low = 1; // min boundry
-int high = n; // max boundry
-while(low <= high){ // depends
-	int mid = low + (high-low)/2;
-	if(){
-		high = mid...
-	}
-	else {
-		low = mid...
+### Inclusive `while (left <= right)`
+
+- **直接判定** mid 是最终结果
+  - `if (...) {return mid;}`
+- edge case:
+  - edge case 取决于整个 list 的顺序规律
+  - 如果 if 有多个 condition, 尽量使用 `&`
+- 必有: `left = mid + 1; right = mid - 1;`
+
+```java
+// init value = res最大 & 最小
+int left = 0;
+int right = n;
+
+while (left <= right) {
+	int mid = left + (right - left) / 2;
+	if (...) {
+		return mid;
+	} else if (...) {
+		left = mid + 1;
+	} else {
+		right = mid - 1;
 	}
 }
+
+return left;
 ```
 
-### Inclusive `while (left <= right)` (精确匹配并可能返回索引)
-
-- **适用场景**：当拿到 mid 的时候, **很清楚** mid 是/不是最终结果
-  - 查找并且直接返回符合的元素, 找 specific value,
-
 {{< notice question >}}
-33, 74, 81, 162, **367**
-{{< /notice >}}
 
-{{< notice warning >}}
-**275**, **1539**
+⭐️ Matrix - mid 取自于总 int 数量
+74
+
+⭐️⭐️⭐️⭐️ 其他
+
+81 - 所有 test case 中分组判定
+162 - 入门
+1539
+275 - 不确定
+
 {{< /notice >}}
 
 ---
 
-### Exclusive `while (left < right)` (在区间中查找边界或条件)
+### Exclusive `while (left < right)`
 
-- **适用场景**：找边界值，**不清楚** mid 是/不是最终结果
+- **不可直接判定**：mid 是最终结果
   - 在区间中查找一个 boundary，上界/下界
 
 {{< notice question >}}
-**34**, 35, 69, 153, 154, 278, 540, 852, **875**
-{{< /notice >}}
 
-{{< notice warning >}}
-154, **528**, **1011**,**1300**, **1802**, 1235, **2422**
+34 - 不确定是什么题型
+35
+69
+153
+154
+278
+528
+540
+875
+1011
+1300
+1802
+1235
+2422
+
 {{< /notice >}}
 
 ### MID = ?
@@ -97,8 +124,9 @@ while (left < right) {
 }
 ```
 
-**272**, **658**
+272
+658
 
 ### Binary Search Insertion
 
-**300**
+300
