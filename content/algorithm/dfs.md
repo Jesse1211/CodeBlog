@@ -37,8 +37,8 @@ dfs(root) {
 🌟🌟🌟🌟 Preorder
 
 114 - 反着做 preorder
-430 - Flatten DoublyLinkedList, (OR 普通的 while loop)
-437 - 用 Map 记录 value, 类似 prefix sum
+430 - 和 114 一样
+437 - 快: Prefix & preofrder; 慢: 2 个嵌套 recursion;
 
 🌟🌟 Inorder
 
