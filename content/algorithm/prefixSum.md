@@ -7,17 +7,9 @@ title = "Prefix Sum"
 
 ### Used Data Structures
 
-- `{value: count}`
+- `{value: count / index}`
 
 #### Array / List
-
-```java
-n = right - left + 1;
-
-int[] sum = new int[n]; // inclusive count
-int[] sum = new int[n + 1]; // exclusive count, 比如路灯问题
-
-```
 
 ```java
 // a - b: increase
@@ -27,12 +19,14 @@ Collections.sort(new ArrayList<>(), (a, b) -> a[0] != b[0] ? a[0] - b[0] : a[1] 
 Arrays.sort(new int[], (a, b) -> a - b);
 ```
 
-- Value
-
 ```java
-int[] sums = new int[n];
+int[] sum = new int[n]; // inclusive count
+
+n = right - left + 1; // 如果n太大, 需使用List<int[]> sort by index
+int[] sum = new int[n + 1]; // exclusive count, 比如路灯问题.
 
 // 额外解决index 0
+map.put(0, -1);
 sums[0] = ...
 
 // loop for the rests from 1
@@ -40,10 +34,6 @@ for (int i = 1; i < n; i++) {
     sums[i] = sums[i-1] + nums[i];
 }
 ```
-
-#### Hash Map
-
-注意 base case, 比如 `map.put(0, 某个值)`
 
 ### Sum 和 find 分开 - 找不相连的 Subarray
 
@@ -77,18 +67,19 @@ return res;
 
 ⭐️ 基础
 
+238
 724 - 2 list
 1094 - map
-2021 - sort array list
+2021 - ❤️ sort array list
 2237 - list
 
 ⭐️⭐️ Groups - res = 最多 count 的 prefix
 
 2406
 
-⭐️⭐️⭐️ Triplets - 需要 2 lists (2 个 int) + 一次 traverse (1 个 int)
+⭐️⭐️⭐️ Triplets
 
-2874
+2874 - ❤️ 2 次 prefix sum 用于找 min index 和 max index
 2909 - 和 2874 一样
 
 {{< /notice >}}
@@ -121,22 +112,21 @@ for (int num : nums) {
 
 ⭐️ 入门 - map, res = Math.max(...)
 
-325
 523
 1109 - list
+
+⭐️⭐️⭐️ subarray = k
+
+325
+560 - map
+974 - map
 
 ⭐️⭐️⭐️ ❤️ sum 和 value 关系不直接
 
 525 - 特定某个 value 对 sum 是加/减
 1590 - 通过 sum 求出 map.key
 
-⭐️⭐️⭐️ count 所有组合 - res += ...
-
-560 - map
-974 - map
-
 ⭐️⭐️⭐️⭐️ 益智 but 常考
 
-238
 670
 {{< /notice >}}
