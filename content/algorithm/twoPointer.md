@@ -5,72 +5,69 @@ title = "Two Pointer"
 
 ## O(nlogn) OR O(nlogn)
 
-##### 两个 list, 分别各有一个指针
+### 两个 list, 分别各有一个指针
 
-低阶
+- Loop 一个 list, 每个 element 和另一个 list 的 2 pointer 合作
+- 多刷, 目前没发总结这东西
+
 {{< notice question >}}
-408, 524
-{{< /notice >}}
 
-高阶
-{{< notice warning >}}
-163, **475**, 826, 986, 1570
+408
+524
+826
+986
+1570
+
 {{< /notice >}}
 
 ---
 
-##### 同向 - 快慢指针
+### 同向 - 快慢指针
 
-```bash
+```text
 0 -> i -> j -> n
+
+- i = slow, [0, i] = processed
+- j = fast, [i, j] = not needed
+- n = length, [j, n] = unknown
+
+n -> i -> j -> 0 (指针不一定要从 0 出发, 也能从 n-1 出发)
 ```
 
-- i (slow) 左边都是 processed`
-- j (fast) 左边都是 not needed
-- n (length) 左边都是 unknown
+```java
+slow = ?? // 储存数据
+fast = ?? // 阅读数据
+while () {
+  if (...) {
+    fast++; // append
+  } else {
+    ... // create a new window (不存在shirnk)
+    slow++;
+    fast++;
+  }
+}
+```
 
-第一步: 判断 slow & fast 他们应该代表什么
-
-第二部: loop:
-
-- fast 什么时候要+1
-- 检查 slow 和 fast 的关系
-
-低阶
 {{< notice question >}}
-26, 27, 31, 88, 121, 283, 443, 3163
-{{< /notice >}}
 
-高阶
-{{< notice warning >}}
-80, **457**, 1004
+⭐️ 入门
+
+80
+88
+121
+
+⭐️⭐️⭐️ 需要找规律
+
+31 - Permutation 找到规律暴力解
+443 - 高阶 3163
+457 - circular
+3163 - 用 sb.append 也类似像是一个 pointer
+
 {{< /notice >}}
 
 ---
 
-##### 相夹 - 左右指针
-
-```bash
-0 -> i -- j <- n
-```
-
-- i (left) 左边都是 processed
-- j (right) 右边都是 processed
-- n (length)
-
-低阶
-{{< notice question >}}
-75, 125, 167, 541, 611, 680, **881**
-{{< /notice >}}
-
-高阶
-{{< notice warning >}}
-42, 259, **923**
-{{< /notice >}}
-
----
-
-##### Sliding Window
+#### 高阶同向: Sliding Window
 
 ```JAVA
 int left = 0, right = 0;
@@ -88,11 +85,12 @@ while (right < nums.size()) {
 }
 ```
 
-- 灵魂拷问
-  1、什么时候应该扩大窗口?
-  2、什么时候应该缩小窗口?
-  3、什么时候应该更新答案?
-- 需要 DataStructure 保存当前 window 信息 (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left
+1. 扩大窗口
+2. 缩小窗口
+3. 更新答案
+
+- DataStructure 保存 window 信息
+  - (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left
 - Non-fixed window trick
   - 不需要每次 slide 都要 shrink 找所有情况
   - `res += right - left + 1;`
@@ -100,9 +98,9 @@ while (right < nums.size()) {
 ```bash
 fixed window size
 while () {
-	1. 加入fast, 删除slow
-	2. 检查window是否valid
-	3. 更新fast, slow指针
+	1. add fast, delete slow
+	2. if window is valid
+	3. fast = ...; slow = ...;
 }
 ```
 
@@ -116,61 +114,82 @@ while () {
 }
 ```
 
-低阶
 {{< notice question >}}
-3, 28, **219**, 438, 567, 713, 930, 1343, 1423, 1658
-{{< /notice >}}
 
-高阶
-{{< notice warning >}}
-76, **424**, **532**, 904, **1052**, **2090**
-{{< /notice >}}
+fixed:
 
+non-fixed:
 
-{{< notice note >}}
-另类sliding window: 621, 2365
-{{< /notice >}}
+3
+28
+76
+219
+438
+424
+532
+567
+713
+904
+930
+1004
+1052
+1343
+1423
+1658
+2090
 
+另类 sliding window:
 
-# Cheats
+621
+2365
 
-#### 找 interval intersections
+{{< /notice>}}
 
-```JAVA
-int newStart = Math.max(leftStart, rightStart);
-int newEnd = Math.min(leftEnd, rightEnd);
-// there is overlapped
-if (newStart <= newEnd) {
-    list.add(new int[] { newStart, newEnd });
+---
+
+### 相夹 - 左右指针
+
+```text
+0 -> i -- j <- n
+- i = left [0, i]: processed
+- j = right [j, n]: processed
+- n = length, [i, j]: unknown
+```
+
+```java
+while (... <= right) { // could be i OR left
+  if (...) {
+    ...
+    left++;
+  }
+
+  if (...) {
+    ...
+    right--;
+  }
+
+  if (...) {
+    ...
+  }
 }
 ```
 
-#### 找 window sum 等于 x
+{{< notice question >}}
 
-重点: res += 当前 window 所有数值
+⭐️ 基础
 
-```JAVA
-public int numSubarraysWithSum(int[] nums, int goal) {
-    return findAll(nums, goal) - findAll(nums, goal - 1);
-}
+42
+167
+680
 
-private int findAll(int[] nums, int goal) {
-    int left = 0;
-    int right = 0;
-    int res = 0;
-    int cur = 0;
-    while (right < nums.length) {
-        cur += nums[right];
+⭐️⭐️⭐️⭐️ LR 双指针 + index 指针
 
-        while (cur > goal && left <= right) {
-            cur -= nums[left];
-            left++;
-        }
+75
+259
+611
+881
+923
 
-        int window = right - left + 1; // 加上window里面所有情况
-        res += window;
-        right++;
-    }
-    return res;
-}
-```
+{{< /notice >}}
+
+---
