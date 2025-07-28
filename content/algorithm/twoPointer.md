@@ -8,15 +8,31 @@ title = "Two Pointer"
 ### 两个 list, 分别各有一个指针
 
 - Loop 一个 list, 每个 element 和另一个 list 的 2 pointer 合作
-- 多刷, 目前没发总结这东西
+```java
+int left = 0;
+int right = 0;
+
+while (left < n && right < m) {
+  // 处理 right
+  while (left < n && right < m && condition) {
+    right++;
+  }
+
+  // 处理 left & right
+  while (left < n && right < m && condition) {
+    left++;
+    right++;
+  }
+}
+```
 
 {{< notice question >}}
 
-408
-524
-826
-986
-1570
+- 408 基础
+- 524 基础
+- 826 ⭐️⭐️⭐️⭐️ sort后 two pointer (更偏向于preprocessing & greedy)
+- 986 ⭐️⭐️⭐️⭐️ find the over lap by comparing boundries
+- 1570 ⭐️⭐️ 运用合理的data structure
 
 {{< /notice >}}
 
@@ -24,19 +40,14 @@ title = "Two Pointer"
 
 ### 同向 - 快慢指针
 
-```text
-0 -> i -> j -> n
-
-- i = slow, [0, i] = processed
-- j = fast, [i, j] = not needed
-- n = length, [j, n] = unknown
-
-n -> i -> j -> 0 (指针不一定要从 0 出发, 也能从 n-1 出发)
-```
+**普通同向指针 (不需要储存ij之间的信息)**
+- `[processed -> not needed -> unknown]`
+- [0 -> i -> j -> n], (指针不一定要从 0 出发, 也能从 n-1 出发)
+- processed: slow pointer
+- not needed: fast pointer
+- unknown: length of the array
 
 ```java
-slow = ?? // 储存数据
-fast = ?? // 阅读数据
 while () {
   if (...) {
     fast++; // append
@@ -50,98 +61,79 @@ while () {
 
 {{< notice question >}}
 
-⭐️ 入门
+⭐️⭐️ 基础同向指针: slow用于储存数据, fast用于阅读数据
 
-80
-88
-121
-
-⭐️⭐️⭐️ 需要找规律
-
-31 - Permutation 找到规律暴力解
-443 - 高阶 3163
-457 - circular
-3163 - 用 sb.append 也类似像是一个 pointer
+- 80: 排除超过x个重复的元素
+- 121: 买卖股票
+- 443: 更改 char[]
+- 457: circular & direction, 快指针跳两步(检查第一 & 第二步是否有效)
 
 {{< /notice >}}
 
----
 
-#### 高阶同向: Sliding Window
-
-```JAVA
-int left = 0, right = 0;
-
-while (right < nums.size()) {
-    // 增大窗口
-    window.addLast(nums[right]);
-    right++;
-
-    while (window needs shrink) {
-        // 缩小窗口
-        window.removeFirst(nums[left]);
-        left++;
-    }
-}
-```
+**Sliding Window (需要储存ij之间的信息, 额外存储窗口信息)**
+- `[检测过 -> 当前窗口 -> unknown]`
+- [0 -> i -> j -> n], (指针不一定要从 0 出发, 也能从 n-1 出发)
 
 1. 扩大窗口
 2. 缩小窗口
 3. 更新答案
 
 - DataStructure 保存 window 信息
-  - (有时候是 frequency), 通过判定 fast 对应的 element 来更改 left
-- Non-fixed window trick
-  - 不需要每次 slide 都要 shrink 找所有情况
-  - `res += right - left + 1;`
+  - (frequency / index), 通过判定 fast 对应的 element 来更改 left
 
-```bash
-fixed window size
-while () {
-	1. add fast, delete slow
-	2. if window is valid
-	3. fast = ...; slow = ...;
-}
-```
+```text
+int left = 0, right = 0, 
 
-```bash
-Non-fixed window size
-while () {
-	1. 进行一次fast检查
-	2. expand: 加入fast之后, 更新window信息
-	3. 检查是否需要shrink
-	4. 更新fast指针
+// window 信息
+window = 0; // 或者 int[] window = new int[n];
+
+while (fast < n) {
+  2. insert: 添加fast, 更新window信息
+	2. validate: 检查窗口 & shirnk (删除slow & 更新slow)
+	3. 更新fast
 }
 ```
 
 {{< notice question >}}
 
-fixed:
+⭐️⭐️⭐️ Fixed 窗口
+
+- 438: 2 个 list 储存 & 比较 freq
+- 904: 固定k个篮子
+- 930: 有trick, **算出window内的所有情况 `res += right - left + 1;`**
+- 1343: 固定k个数
+- 1423: 固定k个数的最小和, 读懂题就知道怎么写了
+- 2090: optional使用prefixSum
+
+
+⭐️⭐️⭐️ Non-Fixed 窗口
+
+- 3: 无重复的最长substring
+- 424: list储存freq
+- 532: 找到所有情况
+- 713: 子数组乘积小于k
+- 1004: 最多flip k个0
+- 1838: k个更新后, 最多相同数字
+
+
+{{< /notice >}}
+
+
+{{< notice question >}}
+
 
 non-fixed:
 
-3
-28
-76
-219
-438
-424
-532
-567
-713
-904
-930
-1004
-1052
-1343
-1423
-1658
-2090
+- 76
+- 1052
+- 1658
+
 
 另类 sliding window:
 
-621
-2365
+- 621
+- 2365
 
 {{< /notice>}}
 
@@ -178,18 +170,20 @@ while (... <= right) { // could be i OR left
 
 ⭐️ 基础
 
-42
-167
-680
+- 42
+- 167
+- 680
 
 ⭐️⭐️⭐️⭐️ LR 双指针 + index 指针
 
-75
-259
-611
-881
-923
+- 75
+- 259
+- 611
+- 881
+- 923
 
 {{< /notice >}}
 
 ---
+
+- 31: Permutation 找到规律暴力解
