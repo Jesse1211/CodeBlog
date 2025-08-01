@@ -102,6 +102,7 @@ while (fast < n) {
 - 438: 2 个 list 储存 & 比较 freq
 - 904: 固定k个篮子
 - 930: 有trick, **算出window内的所有情况 `res += right - left + 1;`**
+- 1052: 找到最大 unsatisfied count in length k, 转换成最长的 satisfied subarray
 - 1343: 固定k个数
 - 1423: 固定k个数的最小和, 读懂题就知道怎么写了
 - 2090: optional使用prefixSum
@@ -110,33 +111,20 @@ while (fast < n) {
 ⭐️⭐️⭐️ Non-Fixed 窗口
 
 - 3: 无重复的最长substring
+- 76: ❤️ 2 个map储存 & 比较 freq, 使用unique代表数量 - window size
 - 424: list储存freq
 - 532: 找到所有情况
 - 713: 子数组乘积小于k
 - 1004: 最多flip k个0
+- 1658: 最长子数组和等于k
 - 1838: k个更新后, 最多相同数字
 
-
-{{< /notice >}}
-
-
-{{< notice question >}}
-
-
-non-fixed:
-
-- 76
-- 1052
-- 1658
-
-
-另类 sliding window:
+另类 sliding window (用到PQ, 也可数学计算)
 
 - 621
 - 2365
 
-{{< /notice>}}
-
+{{< /notice >}}
 ---
 
 ### 相夹 - 左右指针
@@ -146,23 +134,11 @@ non-fixed:
 - i = left [0, i]: processed
 - j = right [j, n]: processed
 - n = length, [i, j]: unknown
-```
 
-```java
-while (... <= right) { // could be i OR left
-  if (...) {
-    ...
-    left++;
-  }
-
-  if (...) {
-    ...
-    right--;
-  }
-
-  if (...) {
-    ...
-  }
+while (left <= right) {
+  1. 处理 left++
+  2. 处理 right--
+  3. (optional) 处理 left & right
 }
 ```
 
