@@ -146,17 +146,16 @@ while (left <= right) {
 
 ⭐️ 基础
 
-- 42
-- 167
-- 680
+- 42: 接雨水
+- 167: two sum II
+- 680: Palindrome II
 
 ⭐️⭐️⭐️⭐️ LR 双指针 + index 指针
 
-- 75
-- 259
-- 611
-- 881
-- 923
+- 75: sort colors, swap, 排除法
+- 259: 3 sum II
+- 881: 这题很trick
+- 923: 高阶版 259
 
 {{< /notice >}}
 
